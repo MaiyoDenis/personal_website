@@ -1,13 +1,24 @@
-interface Props {
-  children: React.ReactNode;
+// components/ui/Section.tsx
+
+import { ReactNode } from "react";
+
+interface SectionProps {
+  id?: string;
+  children: ReactNode;
+  className?: string;
 }
 
-export default function Container({
+export default function Section({
+  id,
   children,
-}: Props) {
+  className = "",
+}: SectionProps) {
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section
+      id={id}
+      className={`py-24 md:py-32 ${className}`}
+    >
       {children}
-    </div>
+    </section>
   );
 }
