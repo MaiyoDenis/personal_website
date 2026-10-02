@@ -2,30 +2,39 @@
 
 export const projects = [
   {
-    slug: "e-wifi-platform",
-    title: "E-WiFi Platform",
+    slug: "assethub-loans",
+    title: "AssetHub Loans & Asset Recovery System",
     description:
-      "A smart WiFi authentication and management platform with analytics, subscriptions, and payments.",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Docker"],
-    githubUrl: "https://github.com/yourusername/e-wifi",
-    demoUrl: "https://e-wifi.example.com",
+      "A comprehensive, full-stack web application for financial lenders to manage loan portfolios and liquidate defaulted collateral, featuring a dual-purpose internal CRM and external e-commerce storefront.",
+    technologies: ["React", "Vite", "TypeScript", "Tailwind CSS", "Node.js", "Prisma ORM"],
   },
   {
-    slug: "ai-learning-assistant",
-    title: "AI Learning Assistant",
+    slug: "fagasa-loan-system",
+    title: "FAGASA Loan Management System",
     description:
-      "An AI-powered tutor for learning software engineering through interactive projects.",
-    technologies: ["Python", "FastAPI", "OpenAI"],
-    githubUrl: "https://github.com/yourusername/ai-learning-assistant",
-    demoUrl: "https://ai-assistant.example.com",
+      "Enterprise-grade microfinance platform handling the complete lifecycle of microfinance operations including group formation, disbursements, repayment tracking, and treasury oversight.",
+    technologies: ["React", "Vite", "React Router", "Python", "Flask", "SQLite", "SQLAlchemy"],
   },
   {
-    slug: "fantasy-league-automation",
-    title: "Fantasy League Automation",
+    slug: "asset-mind-lms",
+    title: "Asset Mind Limited - LMS",
     description:
-      "A complete platform for league registration, fixtures, scoring, and payments.",
-    technologies: ["React", "Express", "MongoDB"],
-    githubUrl: "https://github.com/yourusername/fantasy-league",
-    demoUrl: "https://fantasy.example.com",
+      "Production-grade Loan Management System built after the success of the Barani platform. Featured a massive legacy data migration where I restructured schemas to include missing primary/secondary IDs, fixed logic flaws, and cleaned up a 2.7M KES discrepancy in their old system's data.",
+    technologies: ["Python", "Flask", "React", "Vite", "MySQL", "PostgreSQL", "Recharts"],
+  },
+  {
+    slug: "smart-loans",
+    title: "Smart Loans Management System",
+    description:
+      "Multi-tenant SaaS platform built from scratch for Barani Smart Limited. Transformed their manual operations by digitizing workflows, integrating real-time M-Pesa automated collections, and adding complex RBAC.",
+    technologies: ["React", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "M-Pesa API"],
+    demoUrl: "https://smart-loans-frontend.onrender.com",
+  },
+  {
+    slug: "omnichannel-ecommerce-pos",
+    title: "Omnichannel E-Commerce Platform & POS",
+    description:
+      "High-performance e-commerce ecosystem and Point of Sale system featuring resilient backend architecture, advanced image pipeline optimization, and seamless UI state synchronization.",
+    technologies: ["Node.js", "Express", "TypeScript", "REST API"],
   },
 ] as const;
