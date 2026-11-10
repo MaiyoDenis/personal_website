@@ -1,94 +1,82 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Activity, Cpu, Globe, TrendingUp } from "lucide-react";
+
 export default function HeroDashboard() {
+  const metrics = [
+    { icon: Globe, value: "1,247", label: "Online Users", color: "text-blue-400" },
+    { icon: TrendingUp, value: "84K", label: "Revenue KES", color: "text-emerald-400" },
+    { icon: Cpu, value: "326", label: "Active Devices", color: "text-violet-400" },
+    { icon: Activity, value: "99.8%", label: "Uptime", color: "text-cyan-400" },
+  ];
+
   return (
-    <div className="relative">
-
-      {/* Glow */}
-      <div className="absolute inset-0 rounded-3xl bg-blue-500/20 blur-3xl" />
-
-      <div className="relative rounded-3xl border border-white/10 bg-[#111827]/90 backdrop-blur-xl p-8 shadow-2xl">
-
-        {/* Browser Header */}
-        <div className="mb-8 flex items-center gap-2">
-          <div className="h-3 w-3 rounded-full bg-red-500" />
-          <div className="h-3 w-3 rounded-full bg-yellow-500" />
-          <div className="h-3 w-3 rounded-full bg-green-500" />
-
-          <div className="ml-6 h-8 flex-1 rounded-lg bg-white/5 flex items-center px-4 text-sm text-gray-500">
-            https://ewifi.app/dashboard
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="relative hidden lg:block"
+    >
+      <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500/20 to-violet-500/20 blur-xl" />
+      
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a]/90 shadow-2xl backdrop-blur-xl">
+        {/* Window Header */}
+        <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3 bg-white/5">
+          <div className="flex gap-1.5">
+            <div className="h-3 w-3 rounded-full bg-red-500/80" />
+            <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
+            <div className="h-3 w-3 rounded-full bg-green-500/80" />
+          </div>
+          <div className="ml-4 rounded bg-black/30 px-3 py-1 text-xs text-gray-400 font-mono">
+            app.ewifi.io/dashboard
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold text-white">
-          E-WiFi Analytics
-        </h3>
-
-        <p className="mt-2 text-gray-400">
-          Live monitoring of connected users and revenue.
-        </p>
-
-        <div className="mt-8 grid grid-cols-2 gap-4">
-
-          <Card value="1,247" label="Online Users" />
-
-          <Card value="KES 84K" label="Revenue" />
-
-          <Card value="326" label="Devices" />
-
-          <Card value="99.8%" label="Uptime" />
-
-        </div>
-
-        {/* Fake Chart */}
-
-        <div className="mt-10">
-
-          <div className="mb-4 flex items-center justify-between">
-            <span className="text-gray-400">Traffic</span>
-
-            <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm text-blue-400">
-              Today
+        {/* Dashboard Content */}
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-sm font-semibold text-white flex items-center gap-2">
+              <Activity size={16} className="text-blue-400" />
+              Real-time Analytics
+            </h3>
+            <span className="flex items-center gap-2 text-xs font-mono text-green-400">
+              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+              LIVE
             </span>
           </div>
 
-          <div className="flex h-40 items-end gap-3">
-
-            {[45,60,35,70,90,65,100,80].map((h,i)=>(
-              <div
-                key={i}
-                className="flex-1 rounded-t-xl bg-gradient-to-t from-blue-600 to-cyan-400"
-                style={{height:`${h}%`}}
-              />
+          <div className="grid grid-cols-2 gap-4">
+            {metrics.map((m, i) => (
+              <motion.div
+                key={m.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + i * 0.1 }}
+                className="rounded-xl border border-white/5 bg-white/5 p-4"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <m.icon size={16} className={m.color} />
+                </div>
+                <div className="text-2xl font-bold font-mono text-white mb-1">{m.value}</div>
+                <div className="text-xs text-gray-400">{m.label}</div>
+              </motion.div>
             ))}
-
           </div>
 
+          <div className="mt-6 h-24 flex items-end gap-2">
+            {[40, 70, 45, 90, 65, 80, 55, 100, 75, 85].map((h, i) => (
+              <motion.div
+                key={i}
+                initial={{ height: 0 }}
+                animate={{ height: `${h}%` }}
+                transition={{ delay: 0.6 + i * 0.05, duration: 0.5 }}
+                className="flex-1 bg-gradient-to-t from-blue-600/50 to-blue-400 rounded-t-sm"
+              />
+            ))}
+          </div>
         </div>
-
       </div>
-
-    </div>
-  );
-}
-
-function Card({
-  value,
-  label,
-}:{
-  value:string;
-  label:string;
-}){
-
-  return(
-    <div className="rounded-2xl border border-white/5 bg-white/5 p-5">
-
-      <h4 className="text-3xl font-bold text-white">
-        {value}
-      </h4>
-
-      <p className="mt-2 text-gray-400">
-        {label}
-      </p>
-
-    </div>
+    </motion.div>
   );
 }

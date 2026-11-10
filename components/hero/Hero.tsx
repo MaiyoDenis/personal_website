@@ -1,15 +1,15 @@
 import HeroContent from "./HeroContent";
-import HeroDashboard from "./HeroDashboard";
+import HeroBackground from "./HeroBackground";
+import HeroStats from "./HeroStats";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-cyan-900/10" />
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-[70px]">
+      <HeroBackground />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2 lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center text-center px-6 py-20 lg:px-8">
         <HeroContent />
-        <HeroDashboard />
+        <HeroStats />
       </div>
     </section>
   );

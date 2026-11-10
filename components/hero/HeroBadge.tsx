@@ -1,10 +1,21 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function HeroBadge() {
   return (
-    <div className="inline-flex items-center gap-2">
-      <span className="inline-flex h-5 w-fit shrink-0 items-center justify-center rounded-4xl border border-blue-400/30 bg-blue-500/10 px-2 py-0.5 text-xs font-medium text-blue-300">
-        AI Engineer • Full-Stack Developer
-      </span>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: -20, scale: 0.85 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="inline-flex"
+    >
+      <div className="badge-available relative inline-flex items-center gap-2.5 rounded-full border border-green-500/25 bg-green-500/8 px-5 py-2 text-xs font-semibold text-green-400 backdrop-blur-sm">
+        <span className="status-dot" />
+        <span>Available for opportunities</span>
+        <span className="ml-1 text-green-500/60">·</span>
+        <span className="text-green-300/70">Full-time / Contract</span>
+      </div>
+    </motion.div>
   );
 }
-
