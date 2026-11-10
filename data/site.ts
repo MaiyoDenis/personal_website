@@ -15,4 +15,6 @@ export const siteConfig = {
   github: "https://github.com/MaiyoDenis",
 
   linkedin: "https://linkedin.com/in/MaiyoDenis",
+
+  siteUrl: "https://denismaiyo.dev",
 };
