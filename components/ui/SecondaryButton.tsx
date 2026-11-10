@@ -1,29 +1,21 @@
-interface SectionHeaderProps {
-  eyebrow: string;
-  title: string;
-  description?: string;
+"use client";
+
+import Link from "next/link";
+
+interface Props {
+  href: string;
+  children: React.ReactNode;
+  target?: string;
 }
 
-export default function SectionHeader({
-  eyebrow,
-  title,
-  description,
-}: SectionHeaderProps) {
+export default function SecondaryButton({ href, children, target }: Props) {
   return (
-    <div className="text-center">
-      <p className="font-semibold uppercase tracking-widest text-blue-400">
-        {eyebrow}
-      </p>
-
-      <h2 className="mt-4 text-5xl font-bold text-white">
-        {title}
-      </h2>
-
-      {description && (
-        <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-400">
-          {description}
-        </p>
-      )}
-    </div>
+    <Link
+      href={href}
+      target={target}
+      className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/4 px-7 py-3.5 text-sm font-semibold text-slate-200 backdrop-blur-sm transition-all duration-300 hover:bg-white/8 hover:border-white/20 hover:text-white hover:-translate-y-0.5"
+    >
+      {children}
+    </Link>
   );
 }
