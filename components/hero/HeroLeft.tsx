@@ -8,112 +8,114 @@ import { Mail } from "lucide-react";
 
 export default function HeroLeft() {
   return (
-    <div className="flex flex-col items-start text-left w-full">
-      {/* ── Greeting Badge with connected flame line ── */}
+    <div className="flex flex-col items-start text-left w-full max-w-xl lg:max-w-none">
+      {/* ── Greeting Badge with subtle orange accent rule ── */}
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center mb-6"
+        className="flex items-center mb-5"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#121214]/90 px-4 py-1.5 text-xs font-medium text-white/90 shadow-inner backdrop-blur-md">
-          <span>👋</span>
-          <span>Hi, I&apos;m <strong className="text-white font-semibold">Denis Maiyo</strong></span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0e0e12]/90 px-3.5 py-1.5 text-xs font-medium text-white/90 shadow-inner backdrop-blur-md">
+          <span className="text-sm">👋</span>
+          <span>
+            Hi, I&apos;m <strong className="text-white font-semibold">Denis Maiyo</strong>
+          </span>
         </div>
-        <div className="h-[2px] w-12 sm:w-16 bg-gradient-to-r from-[#FE5101] to-[#FE5101]/10 rounded-full ml-3" />
+        <div className="h-[2px] w-12 sm:w-16 bg-gradient-to-r from-[#FF5A00] to-transparent rounded-full ml-3 opacity-80" />
       </motion.div>
 
-      {/* ── Giant Name Typography: Denis (White) / Maiyo (Flame Orange) ── */}
+      {/* ── Master Headline: Denis (Warm White) / Maiyo (Vibrant Orange) ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="flex flex-col leading-none"
+        transition={{ duration: 0.6, delay: 0.08 }}
+        className="flex flex-col leading-none select-none"
       >
-        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] text-white tracking-[-0.03em] leading-[0.95]">
+        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-white tracking-[-0.035em] leading-[0.92]">
           Denis
         </h1>
-        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] text-[#FE5101] tracking-[-0.03em] leading-[0.95] mt-1 drop-shadow-[0_0_35px_rgba(254,81,1,0.45)]">
+        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-[#FF5A00] tracking-[-0.035em] leading-[0.92] mt-1 drop-shadow-[0_0_35px_rgba(255,90,0,0.4)]">
           Maiyo
         </h1>
       </motion.div>
 
-      {/* ── Role Subtitle with Orange Separators ── */}
+      {/* ── Role Subtitle with Orange Bullet Separators ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm sm:text-base font-medium text-white/90"
+        transition={{ duration: 0.6, delay: 0.16 }}
+        className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm sm:text-[15px] font-medium text-white/90"
       >
         <span>Software Engineer</span>
-        <span className="text-[#FE5101] text-base font-black">•</span>
+        <span className="text-[#FF5A00] text-sm font-bold">•</span>
         <span>AI Builder</span>
-        <span className="text-[#FE5101] text-base font-black">•</span>
+        <span className="text-[#FF5A00] text-sm font-bold">•</span>
         <span>Full-Stack Developer</span>
       </motion.div>
 
-      {/* ── Mission / Bio Paragraph ── */}
+      {/* ── Bio / Value Proposition ── */}
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.25 }}
-        className="mt-4 text-sm sm:text-base text-slate-300/90 leading-relaxed max-w-lg font-sans"
+        transition={{ duration: 0.6, delay: 0.22 }}
+        className="mt-4 text-sm sm:text-base text-white/70 leading-relaxed max-w-lg font-sans"
       >
         I build intelligent systems, automation platforms, and software that solves real-world problems.
       </motion.p>
 
       {/* ── 3 Focus / Specialty Cards ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl"
+        transition={{ duration: 0.6, delay: 0.28 }}
+        className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg"
       >
         {/* Card 1: Full-Stack */}
-        <div className="flex items-center gap-3 rounded-2xl border border-[#FE5101]/25 bg-black/60 backdrop-blur-md px-3.5 py-3 hover:border-[#FE5101]/50 hover:bg-black/80 transition-colors group">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FE5101]/10 text-[#FE5101] group-hover:scale-110 transition-transform">
-            <Terminal size={18} strokeWidth={2.2} />
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 hover:border-[#FF5A00]/40 bg-[#0a0a0e]/85 backdrop-blur-md px-3.5 py-3 transition-colors duration-200 group">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FF5A00]/10 text-[#FF5A00] border border-[#FF5A00]/20 group-hover:scale-105 transition-transform">
+            <Terminal size={17} strokeWidth={2.2} />
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-bold text-white leading-tight">Full-Stack</span>
-            <span className="text-[10px] text-slate-400 leading-tight">Development</span>
+            <span className="text-[10px] text-white/50 leading-tight mt-0.5">Development</span>
           </div>
         </div>
 
         {/* Card 2: AI & ML */}
-        <div className="flex items-center gap-3 rounded-2xl border border-[#FE5101]/25 bg-black/60 backdrop-blur-md px-3.5 py-3 hover:border-[#FE5101]/50 hover:bg-black/80 transition-colors group">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FE5101]/10 text-[#FE5101] group-hover:scale-110 transition-transform">
-            <Brain size={18} strokeWidth={2.2} />
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 hover:border-[#FF5A00]/40 bg-[#0a0a0e]/85 backdrop-blur-md px-3.5 py-3 transition-colors duration-200 group">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FF5A00]/10 text-[#FF5A00] border border-[#FF5A00]/20 group-hover:scale-105 transition-transform">
+            <Brain size={17} strokeWidth={2.2} />
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-bold text-white leading-tight">AI &amp; Machine</span>
-            <span className="text-[10px] text-slate-400 leading-tight">Learning</span>
+            <span className="text-[10px] text-white/50 leading-tight mt-0.5">Learning</span>
           </div>
         </div>
 
         {/* Card 3: Security */}
-        <div className="flex items-center gap-3 rounded-2xl border border-[#FE5101]/25 bg-black/60 backdrop-blur-md px-3.5 py-3 hover:border-[#FE5101]/50 hover:bg-black/80 transition-colors group">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FE5101]/10 text-[#FE5101] group-hover:scale-110 transition-transform">
-            <ShieldCheck size={18} strokeWidth={2.2} />
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 hover:border-[#FF5A00]/40 bg-[#0a0a0e]/85 backdrop-blur-md px-3.5 py-3 transition-colors duration-200 group">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FF5A00]/10 text-[#FF5A00] border border-[#FF5A00]/20 group-hover:scale-105 transition-transform">
+            <ShieldCheck size={17} strokeWidth={2.2} />
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-bold text-white leading-tight">Security</span>
-            <span className="text-[10px] text-slate-400 leading-tight">(Build &amp; Protect)</span>
+            <span className="text-[10px] text-white/50 leading-tight mt-0.5">(Build &amp; Protect)</span>
           </div>
         </div>
       </motion.div>
 
-      {/* ── Action Buttons: Orange Gradient CTA + CV Download ── */}
+      {/* ── Action Buttons ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.35 }}
+        transition={{ duration: 0.6, delay: 0.34 }}
         className="mt-8 flex flex-wrap items-center gap-4"
       >
         {/* Primary Pill: View My Work */}
         <Link
           href="#projects"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FE5101] to-[#FF6B2B] px-7 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_35px_rgba(254,81,1,0.55)] hover:shadow-[0_0_50px_rgba(254,81,1,0.8)] hover:scale-105 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF5A00] to-[#FF7A2B] px-7 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_rgba(255,90,0,0.45)] hover:shadow-[0_0_42px_rgba(255,90,0,0.7)] hover:scale-105 transition-all duration-300"
         >
           <span>View My Work</span>
           <ArrowRight size={16} />
@@ -122,19 +124,19 @@ export default function HeroLeft() {
         {/* Secondary Pill: Download CV */}
         <Link
           href="/resume"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm px-6 sm:px-7 py-3.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/10 transition-all duration-300"
         >
           <Download size={15} />
           <span>Download CV</span>
         </Link>
       </motion.div>
 
-      {/* ── Social Icons & Availability Row ── */}
+      {/* ── Social Icons & Availability Status ── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-9 flex items-center gap-4"
+        className="mt-8 flex items-center gap-4"
       >
         {/* Social Icons */}
         <div className="flex items-center gap-3.5 text-white/70">
@@ -145,7 +147,7 @@ export default function HeroLeft() {
             aria-label="GitHub"
             className="hover:text-white hover:scale-110 transition-all"
           >
-            <GithubIcon size={18} />
+            <GithubIcon size={17} />
           </a>
           <a
             href="https://linkedin.com/in/MaiyoDenis"
@@ -154,7 +156,7 @@ export default function HeroLeft() {
             aria-label="LinkedIn"
             className="hover:text-white hover:scale-110 transition-all"
           >
-            <LinkedinIcon size={18} />
+            <LinkedinIcon size={17} />
           </a>
           <a
             href="https://x.com"
@@ -163,14 +165,14 @@ export default function HeroLeft() {
             aria-label="X (Twitter)"
             className="hover:text-white hover:scale-110 transition-all"
           >
-            <XIcon size={16} />
+            <XIcon size={15} />
           </a>
           <a
             href="mailto:denismaiyo14@gmail.com"
             aria-label="Email"
             className="hover:text-white hover:scale-110 transition-all"
           >
-            <Mail size={18} />
+            <Mail size={17} />
           </a>
         </div>
 
@@ -178,7 +180,7 @@ export default function HeroLeft() {
         <div className="h-4 w-px bg-white/20" />
 
         {/* Availability Status */}
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-300">
+        <div className="flex items-center gap-2 text-xs font-medium text-white/80">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
