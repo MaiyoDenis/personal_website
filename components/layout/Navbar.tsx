@@ -2,37 +2,29 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import { Menu, X, Mail, Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
-import ThemeToggle from "@/components/layout/ThemeToggle";
 
-const navItems = [
-  { name: "Projects", href: "/#projects" },
-  { name: "Skills",   href: "/#skills"   },
-  { name: "Journey",  href: "/#journey"  },
-  { name: "Contact",  href: "/contact"   },
+const leftNav = [
+  { name: "HOME", href: "/" },
+  { name: "PROJECTS", href: "/#projects" },
+  { name: "ABOUT", href: "/#about" },
+];
+
+const rightNav = [
+  { name: "SKILLS", href: "/#skills" },
+  { name: "JOURNEY", href: "/#journey" },
+  { name: "RESUME", href: "/resume" },
+  { name: "CONTACT", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navContainer: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-    },
-  };
-
-  const navItem: Variants = {
-    hidden: { opacity: 0, y: -10 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } },
-  };
-
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -41,125 +33,101 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+          scrolled
+            ? "bg-black/85 backdrop-blur-xl border-b border-white/8 py-3.5"
+            : "bg-transparent py-5"
         }`}
       >
-        <div className="container mx-auto flex h-16 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-gradient-to-br from-blue-600 to-violet-600 text-xs font-bold text-white">
-                DM
-              </div>
-              <span className="font-bold text-white hidden sm:block">Denis Maiyo</span>
-            </Link>
-          </motion.div>
-
-          {/* Desktop Nav */}
-          <motion.nav 
-            variants={navContainer}
-            initial="hidden"
-            animate="show"
-            className="hidden md:flex items-center gap-6"
-          >
-            {navItems.map((item) => (
-              <motion.div key={item.name} variants={navItem}>
-                <Link
-                  href={item.href}
-                  className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
+          {/* ── Left Nav (Desktop) ── */}
+          <nav className="hidden md:flex items-center gap-7 w-1/3">
+            {leftNav.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="font-mono text-[11px] tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-200 uppercase"
+              >
+                {item.name}
+              </Link>
             ))}
-          </motion.nav>
+          </nav>
 
-          {/* Desktop CTAs */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hidden md:flex items-center gap-4"
-          >
-            <ThemeToggle />
+          {/* ── Center Studio Logo (Image 1 "KONTOUR STUDIOS" Signature) ── */}
+          <div className="flex justify-center flex-1 md:flex-initial md:w-1/3">
+            <Link href="/" className="flex flex-col items-center group text-center">
+              <span className="font-display font-extrabold tracking-[0.25em] text-sm md:text-base text-white group-hover:text-[#FE5101] transition-colors duration-300 uppercase leading-tight">
+                DENIS MAIYO
+              </span>
+              <span className="text-[8px] tracking-[0.35em] text-[#FE5101] font-mono uppercase mt-0.5 font-bold">
+                STUDIOS / ARCHITECTURE
+              </span>
+            </Link>
+          </div>
+
+          {/* ── Right Nav (Desktop) ── */}
+          <div className="hidden md:flex items-center justify-end gap-6 w-1/3">
+            {rightNav.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`font-mono text-[11px] tracking-[0.2em] transition-colors duration-200 uppercase ${
+                  item.name === "CONTACT"
+                    ? "inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#FE5101]/40 bg-[#FE5101]/10 text-white hover:bg-[#FE5101] hover:text-black font-semibold"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                {item.name}
+                {item.name === "CONTACT" && <ArrowUpRight size={11} />}
+              </Link>
+            ))}
             <Link
               href="https://github.com/MaiyoDenis"
               target="_blank"
-              className="text-gray-400 hover:text-white transition-colors"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-white/60 hover:text-white transition-colors"
             >
-              <GithubIcon size={18} />
+              <GithubIcon size={16} />
             </Link>
-            <Link
-              href="/resume"
-              className="flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition-colors"
-            >
-              <Download size={14} /> Resume
-            </Link>
-            <Link
-              href="#contact"
-              className="relative flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors group overflow-hidden"
-            >
-              <div className="absolute inset-0 -z-10 bg-blue-400 opacity-0 group-hover:opacity-20 blur-md transition-opacity" />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:animate-shimmer" />
-              <Mail size={14} /> Hire Me
-            </Link>
-          </motion.div>
+          </div>
 
-          {/* Mobile Toggle */}
+          {/* ── Mobile Hamburger ── */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-gray-400 hover:text-white"
+            aria-label="Toggle navigation"
+            className="md:hidden text-white/80 hover:text-white p-1"
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile Drawer ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#050505] pt-20 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl pt-24 px-8 md:hidden flex flex-col justify-between pb-12"
           >
             <nav className="flex flex-col gap-6">
-              {navItems.map((item) => (
+              {[...leftNav, ...rightNav].map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-xl font-semibold text-gray-300 hover:text-white"
+                  className="font-display text-2xl font-bold tracking-tight text-white hover:text-[#FE5101] transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="h-px bg-white/10 my-4" />
-              <Link
-                href="https://github.com/MaiyoDenis"
-                className="flex items-center gap-3 text-lg text-gray-300"
-              >
-                <GithubIcon size={20} /> GitHub
-              </Link>
-              <Link
-                href="/resume"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 text-lg text-gray-300"
-              >
-                <Download size={20} /> View Resume
-              </Link>
-              <Link
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 mt-4 rounded-md bg-blue-600 py-3 text-lg font-medium text-white"
-              >
-                <Mail size={20} /> Hire Me
-              </Link>
             </nav>
+
+            <div className="pt-8 border-t border-white/10 flex items-center justify-between text-xs text-white/50 font-mono">
+              <span>DENIS MAIYO · STUDIO</span>
+              <span>NAIROBI, KE</span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
