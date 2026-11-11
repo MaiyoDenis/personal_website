@@ -32,7 +32,7 @@ export default function HeroRight() {
         {/* ── 1. Volumetric Flame Ambient Glow (Behind head & shoulders) ── */}
         <div
           aria-hidden="true"
-          className="absolute top-[32%] left-[58%] -translate-x-1/2 -translate-y-1/2 w-[85%] aspect-square rounded-full pointer-events-none z-0"
+          className="absolute top-[28%] left-[51%] -translate-x-1/2 -translate-y-1/2 w-[70%] aspect-square rounded-full pointer-events-none z-0"
           style={{
             background:
               "radial-gradient(circle at center, rgba(254, 81, 1, 0.45) 0%, rgba(220, 35, 0, 0.2) 42%, transparent 72%)",
@@ -40,13 +40,13 @@ export default function HeroRight() {
           }}
         />
 
-        {/* ── 2. Glowing Neon Orange Ring (Mathematically locked to Denis's head at 58% X) ── */}
+        {/* ── 2. Glowing Neon Orange Ring (Moved to the left, tightly hugging Denis's head) ── */}
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           aria-hidden="true"
-          className="absolute -top-[4%] left-[58%] -translate-x-1/2 w-[72%] aspect-square rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
+          className="absolute -top-[5%] left-[51%] -translate-x-1/2 w-[58%] sm:w-[58%] lg:w-[60%] aspect-square rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
           style={{
             boxShadow:
               "0 0 25px #FE5101, 0 0 55px rgba(254, 81, 1, 0.85), 0 0 95px rgba(254, 81, 1, 0.5), inset 0 0 25px rgba(254, 81, 1, 0.35)",
@@ -57,10 +57,10 @@ export default function HeroRight() {
           }}
         />
 
-        {/* ── 3. Top-Right Intense Neon Flare / Hotspot (1-2 o'clock burst on ring) ── */}
+        {/* ── 3. Top-Right Intense Neon Flare / Hotspot (Right on the ring's 1-2 o'clock curve) ── */}
         <div
           aria-hidden="true"
-          className="absolute -top-[3%] right-[8%] w-36 h-36 rounded-full pointer-events-none z-10 opacity-90"
+          className="absolute -top-[2%] right-[20%] sm:right-[22%] w-32 h-32 rounded-full pointer-events-none z-10 opacity-90"
           style={{
             background:
               "radial-gradient(circle at center, rgba(255, 150, 50, 0.95) 0%, rgba(254, 81, 1, 0.7) 35%, rgba(220, 35, 0, 0.2) 60%, transparent 80%)",
