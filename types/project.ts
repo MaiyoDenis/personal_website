@@ -20,4 +20,8 @@ export interface Project {
   demoUrl?: string;
   metrics: string[];
   featured?: boolean;
+  /** Path relative to /public — e.g. "/images/projects/foo.jpg" */
+  screenshot?: string;
+  /** Second screenshot shown on hover */
+  screenshotHover?: string;
 }
