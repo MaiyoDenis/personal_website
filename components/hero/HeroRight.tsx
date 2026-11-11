@@ -38,7 +38,35 @@ export default function HeroRight() {
         }}
       />
 
-      {/* ── 2. Floating Code Windows (Left & Right behind subject) ── */}
+      {/* ── 2. Glowing Neon Orange Ring (Behind Head & Shoulders) ── */}
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        aria-hidden="true"
+        className="absolute top-[6%] sm:top-[8%] lg:top-[9%] left-1/2 -translate-x-1/2 w-[310px] sm:w-[390px] lg:w-[430px] h-[310px] sm:h-[390px] lg:h-[430px] rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
+        style={{
+          boxShadow:
+            "0 0 25px #FE5101, 0 0 50px rgba(254, 81, 1, 0.85), 0 0 90px rgba(254, 81, 1, 0.5), inset 0 0 25px rgba(254, 81, 1, 0.35)",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 90%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 90%)",
+        }}
+      />
+
+      {/* ── 3. Top-Right Intense Neon Flare / Hotspot (Matches 1-2 o'clock burst) ── */}
+      <div
+        aria-hidden="true"
+        className="absolute top-[6%] sm:top-[7%] right-[16%] sm:right-[18%] lg:right-[20%] w-36 h-36 rounded-full pointer-events-none z-10 opacity-90"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(255, 150, 50, 0.95) 0%, rgba(254, 81, 1, 0.7) 35%, rgba(220, 35, 0, 0.2) 60%, transparent 80%)",
+          filter: "blur(22px)",
+        }}
+      />
+
+      {/* ── 4. Floating Code Windows (Left & Right behind subject) ── */}
       {/* Left Code Window */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -84,7 +112,7 @@ export default function HeroRight() {
         </div>
       </motion.div>
 
-      {/* ── 3. Main Subject: Denis Maiyo Cut-out (profile.png) ── */}
+      {/* ── 5. Main Subject: Denis Maiyo Cut-out (profile.png) ── */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -101,7 +129,7 @@ export default function HeroRight() {
         />
       </motion.div>
 
-      {/* ── 4. Left Stack of Floating Tech Pills ── */}
+      {/* ── 6. Left Stack of Floating Tech Pills ── */}
       <div className="absolute left-0 top-[28%] -translate-x-2 sm:-translate-x-6 lg:-translate-x-12 z-30 flex flex-col gap-2.5">
         {techStack.map((tech, i) => (
           <motion.div
@@ -122,7 +150,7 @@ export default function HeroRight() {
         ))}
       </div>
 
-      {/* ── 5. Top Right Angled Handwritten Quote ── */}
+      {/* ── 7. Top Right Angled Handwritten Quote ── */}
       <motion.div
         initial={{ opacity: 0, y: -20, rotate: -7 }}
         animate={{ opacity: 1, y: 0, rotate: -7 }}
@@ -136,7 +164,7 @@ export default function HeroRight() {
         </p>
       </motion.div>
 
-      {/* ── 6. Lower Right Floating "Building..." Card ── */}
+      {/* ── 8. Lower Right Floating "Building..." Card ── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 25 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
