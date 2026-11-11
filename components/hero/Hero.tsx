@@ -18,13 +18,13 @@ export default function Hero() {
         }}
       />
 
-      {/* ── 2. Bottom Orange Dotted Wave Mesh (footer.png) ── */}
+      {/* ── 2. Bottom Orange Dotted Wave Mesh (footers.png) ── */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 w-full overflow-hidden leading-none select-none"
       >
         <Image
-          src="/images/footer.png"
+          src="/images/footers.png"
           alt=""
           width={2144}
           height={733}
