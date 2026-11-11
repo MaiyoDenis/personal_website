@@ -27,7 +27,7 @@ const buildingList = [
 export default function HeroRight() {
   return (
     <div className="relative w-full max-w-[620px] mx-auto flex items-center justify-center min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] select-none">
-      {/* ── 1. Giant Volumetric Flame Ambient Glow ── */}
+      {/* ── 1. Volumetric Flame Ambient Glow ── */}
       <div
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[520px] h-[420px] sm:h-[520px] rounded-full pointer-events-none z-0"
@@ -38,20 +38,7 @@ export default function HeroRight() {
         }}
       />
 
-      {/* ── 2. Giant Glowing Neon Orange Ring / Halo ── */}
-      <motion.div
-        initial={{ scale: 0.85, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] w-[340px] sm:w-[420px] lg:w-[460px] h-[340px] sm:h-[420px] lg:h-[460px] rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
-        style={{
-          boxShadow:
-            "0 0 50px rgba(254, 81, 1, 0.65), 0 0 100px rgba(254, 81, 1, 0.35), inset 0 0 35px rgba(254, 81, 1, 0.25)",
-        }}
-      />
-
-      {/* ── 3. Floating Code Windows (Left & Right behind subject) ── */}
+      {/* ── 2. Floating Code Windows (Left & Right behind subject) ── */}
       {/* Left Code Window */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -97,7 +84,7 @@ export default function HeroRight() {
         </div>
       </motion.div>
 
-      {/* ── 4. Main Subject: Denis Maiyo Cut-out (profile.png) ── */}
+      {/* ── 3. Main Subject: Denis Maiyo Cut-out (profile.png) ── */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -114,7 +101,7 @@ export default function HeroRight() {
         />
       </motion.div>
 
-      {/* ── 5. Left Stack of Floating Tech Pills ── */}
+      {/* ── 4. Left Stack of Floating Tech Pills ── */}
       <div className="absolute left-0 top-[28%] -translate-x-2 sm:-translate-x-6 lg:-translate-x-12 z-30 flex flex-col gap-2.5">
         {techStack.map((tech, i) => (
           <motion.div
@@ -135,7 +122,7 @@ export default function HeroRight() {
         ))}
       </div>
 
-      {/* ── 6. Top Right Angled Handwritten Quote ── */}
+      {/* ── 5. Top Right Angled Handwritten Quote ── */}
       <motion.div
         initial={{ opacity: 0, y: -20, rotate: -7 }}
         animate={{ opacity: 1, y: 0, rotate: -7 }}
@@ -149,7 +136,7 @@ export default function HeroRight() {
         </p>
       </motion.div>
 
-      {/* ── 7. Lower Right Floating "Building..." Card ── */}
+      {/* ── 6. Lower Right Floating "Building..." Card ── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 25 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
