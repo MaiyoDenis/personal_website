@@ -6,7 +6,7 @@ import HeroRight from "./HeroRight";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] lg:min-h-[95vh] lg:h-[95vh] flex flex-col justify-end overflow-hidden pt-20 sm:pt-24 lg:pt-20 pb-0 bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-8 sm:pb-12 bg-black">
       {/* ── 1. Top-Left Volumetric Radiant Glow ── */}
       <div
         aria-hidden="true"
@@ -27,24 +27,24 @@ export default function Hero() {
           src="/images/footer.png"
           alt=""
           width={2144}
-          height={230}
+          height={733}
           priority
-          className="w-full h-auto max-h-[170px] sm:max-h-[220px] lg:max-h-[260px] object-cover object-bottom opacity-90 mix-blend-screen"
+          className="w-full h-auto max-h-[220px] sm:max-h-[300px] lg:max-h-[360px] object-cover object-bottom opacity-85 mix-blend-screen"
         />
         {/* Soft bottom edge fade */}
-        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-black to-transparent" />
       </div>
 
       {/* ── 3. Main Hero Two-Column Grid ── */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 lg:px-8 pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-end">
-          {/* Left Column: Greeting, Name, Role, Features, CTAs, Socials (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-end pb-8 sm:pb-12 lg:pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+          {/* Left Column: Greeting, Name, Role, Features, CTAs, Socials (6 cols) */}
+          <div className="lg:col-span-6 flex flex-col justify-center pb-6 lg:pb-0">
             <HeroLeft />
           </div>
 
-          {/* Right Column: Glowing Ring, Floating Tech Pills, Portrait & Building Card (5 cols) */}
-          <div className="lg:col-span-5 flex items-end justify-center self-end">
+          {/* Right Column: Glowing Ring, Floating Tech Pills, Portrait & Building Card (6 cols) */}
+          <div className="lg:col-span-6 flex items-center justify-center">
             <HeroRight />
           </div>
         </div>
