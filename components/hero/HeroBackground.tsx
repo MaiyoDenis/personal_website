@@ -7,8 +7,8 @@ export default function HeroBackground() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  const springX = useSpring(mouseX, { stiffness: 45, damping: 25 });
+  const springY = useSpring(mouseY, { stiffness: 45, damping: 25 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -24,40 +24,60 @@ export default function HeroBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 overflow-hidden bg-[#050505]"
+      className="pointer-events-none absolute inset-0 overflow-hidden bg-black z-0"
     >
-      {/* Primary Ambient Glow - Deep Sapphire / Blue */}
-      <div className="absolute left-1/2 top-0 -z-10 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-blue-600/12 blur-[140px]" />
+      {/* ── Top-Left Volumetric Radiant Glow (Refined & Softened) ── */}
+      <div 
+        className="absolute -top-12 -left-12 w-[550px] sm:w-[750px] lg:w-[950px] h-[500px] sm:h-[680px] lg:h-[800px] opacity-75 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at 8% 8%, rgba(254, 81, 1, 0.55) 0%, rgba(220, 35, 0, 0.35) 28%, rgba(120, 15, 0, 0.15) 55%, transparent 75%)",
+          filter: "blur(65px)",
+        }}
+      />
 
-      {/* Secondary Ambient Glow - Indigo / Violet */}
-      <div className="absolute left-1/2 top-1/4 -z-10 h-[450px] w-[650px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[130px]" />
+      {/* Subtle warm ambient diffusion */}
+      <div 
+        className="absolute top-0 left-0 w-[300px] sm:w-[420px] h-[300px] sm:h-[420px] opacity-40 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at 0% 0%, rgba(254, 81, 1, 0.6) 0%, rgba(180, 25, 0, 0.25) 50%, transparent 80%)",
+          filter: "blur(50px)",
+        }}
+      />
 
-      {/* Subtle Cyan Accent Orb */}
-      <div className="absolute right-1/4 top-1/3 -z-10 h-[300px] w-[300px] rounded-full bg-cyan-500/8 blur-[110px]" />
+      {/* ── Center Rim Lighting / Backlight Halo behind showcase card ── */}
+      <div 
+        className="absolute top-1/3 right-1/4 w-[480px] h-[480px] rounded-full opacity-60 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at center, rgba(254, 81, 1, 0.6) 0%, rgba(180, 25, 0, 0.3) 45%, transparent 75%)",
+          filter: "blur(90px)",
+        }}
+      />
 
-      {/* Interactive Cursor Spotlight Glow */}
+      {/* ── Interactive Cursor Spotlight ── */}
       <motion.div
-        className="absolute left-1/2 top-1/3 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[100px]"
+        className="absolute left-1/2 top-1/3 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 pointer-events-none"
         style={{
           x: springX,
           y: springY,
+          background: "radial-gradient(circle, #FE5101 0%, transparent 70%)",
+          filter: "blur(80px)",
         }}
       />
 
-      {/* Refined Dot Matrix Pattern with Radial Mask */}
+      {/* ── Ultra-fine Grid Matrix Overlay with Vignette Mask ── */}
       <div
-        className="absolute inset-0 opacity-[0.14]"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
-          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
           maskImage:
-            "radial-gradient(ellipse 65% 55% at 50% 38%, black 30%, transparent 80%)",
+            "radial-gradient(ellipse 70% 60% at 50% 35%, black 40%, transparent 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 65% 55% at 50% 38%, black 30%, transparent 80%)",
+            "radial-gradient(ellipse 70% 60% at 50% 35%, black 40%, transparent 90%)",
         }}
       />
 
-      {/* Subtle Horizontal Gradient Horizon Line */}
+      {/* ── Horizon border line ── */}
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </div>
   );

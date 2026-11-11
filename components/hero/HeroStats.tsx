@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { number: 3,  suffix: "+",    label: "Years Experience", color: "from-blue-400 to-blue-500" },
-  { number: 10, suffix: "+",    label: "Projects Built",   color: "from-violet-400 to-violet-500" },
-  { number: 4,  suffix: "",     label: "Live Products",    color: "from-cyan-400 to-blue-400" },
-  { number: 99, suffix: ".8%",  label: "Uptime Record",   color: "from-emerald-400 to-cyan-400" },
+  { number: 3,  suffix: "+",    label: "Years Experience", color: "from-orange-400 to-amber-400" },
+  { number: 10, suffix: "+",    label: "Projects Built",   color: "from-rose-400 to-orange-400" },
+  { number: 4,  suffix: "",     label: "Live Products",    color: "from-amber-400 to-yellow-300" },
+  { number: 99, suffix: ".8%",  label: "Uptime Record",   color: "from-emerald-400 to-teal-400" },
 ];
 
 function CountUp({
@@ -63,7 +63,7 @@ export default function HeroStats() {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.4 }}
-      className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-14"
+      className="mt-16 lg:mt-20 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-14"
     >
       {stats.map((stat, i) => (
         <div key={stat.label} className="flex items-center gap-8 md:gap-14">
