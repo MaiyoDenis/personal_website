@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, CheckCircle2, Terminal, Layers } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ExternalLink, CheckCircle2, Terminal, Layers, Globe } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/layout/Navbar";
@@ -107,7 +108,7 @@ export default async function ProjectPage({ params }: Props) {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/30"
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-rose-500 px-4 py-2.5 text-sm font-medium text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all shadow-lg"
                   >
                     <ExternalLink size={16} />
                     Live Preview
@@ -120,10 +121,73 @@ export default async function ProjectPage({ params }: Props) {
               {project.title}
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
+            <p className="text-lg md:text-xl text-[#c2b8a8] leading-relaxed max-w-3xl">
               {project.problem}
             </p>
           </div>
+
+          {/* Screenshot Showcase / Visual Preview */}
+          {project.screenshot && (
+            <div className="mb-12 space-y-6">
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#080808] shadow-2xl">
+                {/* Browser window chrome */}
+                <div className="flex items-center gap-2 border-b border-white/8 px-4 py-3 bg-[#0e0e0e]">
+                  <div className="flex gap-1.5">
+                    <div className="h-3 w-3 rounded-full bg-rose-500/80" />
+                    <div className="h-3 w-3 rounded-full bg-amber-500/80" />
+                    <div className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <div className="ml-4 flex-1 max-w-md rounded-md bg-black/40 px-3 py-1 text-xs text-slate-400 font-mono flex items-center gap-2 truncate">
+                    <Globe size={12} className="text-[#FE5101] shrink-0" />
+                    <span className="truncate">{project.demoUrl || `https://${project.slug}.app`}</span>
+                  </div>
+                  {project.demoUrl && project.demoUrl !== "#" && (
+                    <Link
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-auto flex items-center gap-1.5 text-xs text-[#FE5101] hover:text-white font-medium transition-colors"
+                    >
+                      <ExternalLink size={12} />
+                      Open Live
+                    </Link>
+                  )}
+                </div>
+
+                {/* Screenshot image */}
+                <div className="relative aspect-[16/9] w-full bg-black/50 overflow-hidden">
+                  <Image
+                    src={project.screenshot}
+                    alt={`${project.title} interface preview`}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Secondary screenshot if present */}
+              {project.screenshotHover && (
+                <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#080808] shadow-2xl">
+                  <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5 bg-[#0e0e0e] text-xs text-slate-400 font-mono">
+                    <span className="text-slate-300 font-sans font-semibold">Dashboard &amp; Operations View</span>
+                    <span className="text-[11px] text-[#FE5101] flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
+                      Live Data
+                    </span>
+                  </div>
+                  <div className="relative aspect-[16/9] w-full bg-black/50 overflow-hidden">
+                    <Image
+                      src={project.screenshotHover}
+                      alt={`${project.title} detailed dashboard`}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Key Metrics Grid */}
           {project.metrics && project.metrics.length > 0 && (
@@ -149,13 +213,13 @@ export default async function ProjectPage({ params }: Props) {
           )}
 
           {/* Detailed Overview */}
-          <div className="space-y-8 rounded-3xl border border-white/8 bg-[#0a0f1a] p-8 md:p-10 mb-12">
+          <div className="space-y-8 rounded-3xl border border-white/8 bg-[#111009] p-8 md:p-10 mb-12">
             <div>
               <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <Terminal size={20} className="text-blue-400" />
+                <Terminal size={20} className="text-orange-400" />
                 Architecture &amp; Implementation
               </h2>
-              <p className="text-slate-300 leading-relaxed text-base whitespace-pre-line">
+              <p className="text-[#c2b8a8] leading-relaxed text-base whitespace-pre-line">
                 {project.longDescription}
               </p>
             </div>
@@ -163,14 +227,14 @@ export default async function ProjectPage({ params }: Props) {
             {/* Tech Stack */}
             <div className="border-t border-white/5 pt-6">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
-                <Layers size={16} className="text-violet-400" />
+                <Layers size={16} className="text-rose-400" />
                 Technologies &amp; Frameworks
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-xl border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-slate-200 hover:border-white/20 transition-colors"
+                    className="rounded-xl border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-slate-200 hover:border-orange-500/30 transition-colors font-mono"
                   >
                     {tech}
                   </span>
@@ -190,7 +254,7 @@ export default async function ProjectPage({ params }: Props) {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-500 transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-rose-500 px-5 py-2.5 text-sm font-medium text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all shadow-md font-medium"
             >
               Discuss a Project with Denis
             </Link>
