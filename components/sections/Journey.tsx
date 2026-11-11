@@ -4,62 +4,107 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { timeline } from "@/data/experience";
 
-const colorMap: Record<string, { line: string; dot: string; glow: string; badge: string }> = {
-  "2023": {
-    line: "from-blue-600 to-blue-400",
-    dot: "bg-blue-500",
-    glow: "rgba(59,130,246,0.4)",
-    badge: "text-blue-400 bg-blue-500/10 border-blue-500/25",
-  },
-  "2024": {
-    line: "from-violet-600 to-purple-400",
-    dot: "bg-violet-500",
-    glow: "rgba(139,92,246,0.4)",
-    badge: "text-violet-400 bg-violet-500/10 border-violet-500/25",
-  },
-  "2025": {
-    line: "from-cyan-600 to-cyan-400",
-    dot: "bg-cyan-500",
-    glow: "rgba(34,211,238,0.4)",
-    badge: "text-cyan-400 bg-cyan-500/10 border-cyan-500/25",
-  },
-  "2026": {
-    line: "from-pink-600 to-rose-400",
-    dot: "bg-pink-500",
-    glow: "rgba(236,72,153,0.4)",
-    badge: "text-pink-400 bg-pink-500/10 border-pink-500/25",
-  },
-};
+/* One unified orange/amber colour scheme for every year */
+const DOT_BG = "bg-[#FF5A00]";
+const DOT_GLOW = "rgba(255,90,0,0.45)";
+const LINE_GRADIENT = "from-[#FF5A00] via-[#FF7A30] to-[#FF9D42]";
+const BADGE_CLASS =
+  "text-[#FF9D42] bg-[#FF5A00]/10 border border-[#FF5A00]/25";
 
-function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number }) {
+function TimelineCard({
+  item,
+  inView,
+}: {
+  item: (typeof timeline)[0];
+  inView: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.5 }}
+      className="group mb-8 overflow-hidden rounded-[20px] border border-[rgba(255,90,0,0.15)] bg-[#0D0A08] p-6 transition-all duration-400 hover:border-[rgba(255,90,0,0.38)] hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(255,90,0,0.08)]"
+      style={{ transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)" }}
+    >
+      {/* Inner ambient glow */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-[20px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(200px circle at 50% -10%, rgba(255,90,0,0.07), transparent 70%)",
+        }}
+      />
+
+      {/* Year badge */}
+      <div className="relative flex flex-wrap items-center gap-3">
+        <span
+          className={`rounded-full px-3 py-1 text-xs font-bold font-mono ${BADGE_CLASS}`}
+        >
+          {item.year}
+        </span>
+        <span className="text-lg">{item.icon}</span>
+      </div>
+
+      {/* Title */}
+      <h3 className="relative mt-3 text-base font-bold text-[#F5F0EA] group-hover:text-white transition-colors">
+        {item.title}
+      </h3>
+
+      {/* Description */}
+      <p className="relative mt-2.5 text-sm leading-relaxed text-[#A99B90] group-hover:text-[#B5A69A] transition-colors">
+        {item.description}
+      </p>
+
+      {/* Tags */}
+      <div className="relative mt-4 flex flex-wrap gap-2">
+        {item.tags.map((tag) => (
+          <span
+            key={tag}
+            className="inline-flex items-center rounded-md border border-white/8 bg-[#17100C] px-2.5 py-1 text-[10px] font-mono font-medium text-[#A99B90] transition-colors hover:border-[#FF5A00]/30 hover:text-white/90"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+function TimelineItem({
+  item,
+  index,
+}: {
+  item: (typeof timeline)[0];
+  index: number;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const colors = colorMap[item.year] ?? colorMap["2026"];
   const isLeft = index % 2 === 0;
 
   return (
-    <div ref={ref} className={`relative flex gap-8 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
-      {/* Content */}
+    <div
+      ref={ref}
+      className={`relative flex gap-8 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+    >
+      {/* Left column (desktop) */}
       <motion.div
         initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="flex-1 hidden md:block"
       >
-        {isLeft && (
-          <TimelineCard item={item} colors={colors} isLeft={isLeft} />
-        )}
+        {isLeft && <TimelineCard item={item} inView={inView} />}
         {!isLeft && <div />}
       </motion.div>
 
-      {/* Center spine */}
+      {/* Center spine (desktop) */}
       <div className="hidden md:flex flex-col items-center">
         <motion.div
-          initial={{ scale: 0 }}
-          animate={inView ? { scale: 1 } : {}}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={inView ? { scale: 1, opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full ${colors.dot} text-white text-base font-semibold shadow-lg`}
-          style={{ boxShadow: `0 0 20px ${colors.glow}` }}
+          className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full ${DOT_BG} text-base font-semibold shadow-lg`}
+          style={{ boxShadow: `0 0 24px ${DOT_GLOW}` }}
         >
           {item.icon}
         </motion.div>
@@ -67,12 +112,13 @@ function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number
           <motion.div
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className={`w-0.5 flex-1 min-h-[80px] bg-gradient-to-b ${colors.line} origin-top`}
+            transition={{ duration: 1.1, delay: 0.4, ease: "easeOut" }}
+            className={`w-0.5 flex-1 min-h-[80px] bg-gradient-to-b ${LINE_GRADIENT} origin-top opacity-50`}
           />
         )}
       </div>
 
+      {/* Right column (desktop) */}
       <div className="flex-1 hidden md:block">
         {!isLeft && (
           <motion.div
@@ -80,7 +126,7 @@ function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <TimelineCard item={item} colors={colors} isLeft={isLeft} />
+            <TimelineCard item={item} inView={inView} />
           </motion.div>
         )}
         {isLeft && <div />}
@@ -95,53 +141,19 @@ function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number
       >
         <div className="flex flex-col items-center">
           <div
-            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${colors.dot} text-sm`}
-            style={{ boxShadow: `0 0 15px ${colors.glow}` }}
+            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${DOT_BG} text-sm`}
+            style={{ boxShadow: `0 0 16px ${DOT_GLOW}` }}
           >
             {item.icon}
           </div>
           {index < timeline.length - 1 && (
-            <div className={`w-0.5 flex-1 min-h-[40px] bg-gradient-to-b ${colors.line} mt-2`} />
+            <div
+              className={`w-0.5 flex-1 min-h-[40px] bg-gradient-to-b ${LINE_GRADIENT} mt-2 opacity-50`}
+            />
           )}
         </div>
-        <TimelineCard item={item} colors={colors} isLeft={true} />
+        <TimelineCard item={item} inView={inView} />
       </motion.div>
-    </div>
-  );
-}
-
-function TimelineCard({
-  item,
-  colors,
-}: {
-  item: typeof timeline[0];
-  colors: { line: string; dot: string; glow: string; badge: string };
-  isLeft: boolean;
-}) {
-  return (
-    <div
-      className="group mb-8 rounded-2xl border border-white/8 bg-[#0a0f1a] p-6 transition-all duration-400 hover:border-white/15 hover:-translate-y-1"
-      style={{ transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)" }}
-    >
-      <div className="flex flex-wrap items-center gap-3">
-        <span className={`rounded-full border px-3 py-1 text-xs font-bold font-mono ${colors.badge}`}>
-          {item.year}
-        </span>
-      </div>
-
-      <h3 className="mt-3 text-lg font-bold text-white">{item.title}</h3>
-
-      <p className="mt-2.5 text-sm leading-relaxed text-slate-500 group-hover:text-slate-400 transition-colors">
-        {item.description}
-      </p>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {item.tags.map((tag) => (
-          <span key={tag} className="tech-pill">
-            {tag}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }
@@ -149,8 +161,15 @@ function TimelineCard({
 export default function Journey() {
   return (
     <section id="journey" className="relative mx-auto max-w-5xl px-6 py-28 lg:px-8">
-      {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/6 blur-3xl" />
+      {/* Ambient glow */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[500px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(255,90,0,0.045) 0%, rgba(255,90,0,0.012) 45%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
 
       {/* Heading */}
       <motion.div
@@ -160,37 +179,43 @@ export default function Journey() {
         transition={{ duration: 0.7 }}
         className="text-center"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/8 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-cyan-400">
-          🚀 My Path
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5A00]/25 bg-[#FF5A00]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF5A00]">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-[#FF5A00] animate-pulse" />
+          My Path
         </div>
-        <h2 className="mt-5 text-5xl font-black text-white md:text-6xl">
-          Engineering{" "}
-          <span className="gradient-text">Journey</span>
+
+        <h2 className="mt-5 font-display text-4xl sm:text-6xl font-black tracking-tight">
+          <span className="text-[#F5F0EA]">Engineering </span>
+          <span className="text-[#FF5A00]">Journey</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-slate-500">
-          From writing my first lines of code to shipping production platforms —
-          a rapid growth story.
+
+        <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base leading-relaxed font-sans text-[#A99B90]">
+          From writing my first lines of code to shipping production platforms — a rapid
+          growth story.
         </p>
       </motion.div>
 
-      {/* Personal Quote */}
+      {/* Personal quote */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mx-auto mt-12 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm"
+        className="mx-auto mt-12 max-w-2xl rounded-[20px] border border-[rgba(255,90,0,0.18)] bg-[#0D0A08] p-6 text-center"
       >
-        <p className="text-lg font-medium italic text-slate-300">
-          &quot;I fell in love with coding because it&apos;s the closest thing we have to magic. 
-          You type words on a screen, and a business process on the other side of the country transforms.&quot;
+        <span className="mb-3 inline-block text-2xl text-[#FF5A00] select-none">"</span>
+        <p className="text-sm leading-relaxed font-medium italic text-[#B5A69A]">
+          I fell in love with coding because it&apos;s the closest thing we have to magic.
+          You type words on a screen, and a business process on the other side of the
+          country transforms.
         </p>
+        <span className="mt-3 inline-block text-2xl text-[#FF5A00] select-none">"</span>
       </motion.div>
 
       {/* Timeline */}
-      <div className="mt-16 flex flex-col gap-0 md:gap-0">
+      <div className="mt-16 flex flex-col gap-0">
         {timeline.map((item, i) => (
-          <TimelineItem key={item.year} item={item} index={i} />
+          <TimelineItem key={item.year + i} item={item} index={i} />
         ))}
       </div>
     </section>
