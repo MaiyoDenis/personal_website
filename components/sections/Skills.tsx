@@ -6,37 +6,36 @@ import { skillGroups } from "@/data/skills";
 const categoryMeta: Record<string, { emoji: string; description: string }> = {
   Frontend: {
     emoji: "⚡",
-    description: "Pixel-perfect UIs with buttery-smooth interactions",
+    description: "High-performance UIs with fluid, responsive interactions",
   },
   Backend: {
     emoji: "🔧",
-    description: "Scalable APIs and robust server architecture",
+    description: "Multi-tenant APIs, microservices, and financial rails",
   },
   "AI & Automation": {
     emoji: "🤖",
-    description: "Intelligent systems and workflow automation",
+    description: "Intelligent systems, workflow automation, and LLM orchestration",
   },
   "Cloud & DevOps": {
     emoji: "☁️",
-    description: "Production-grade deployment and infrastructure",
+    description: "Production-grade CI/CD, Docker containers, and database scaling",
   },
 };
 
 const allTech = [
   "Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion",
-  "Node.js", "Express", "Python", "FastAPI", "Django",
-  "OpenAI API", "LangChain", "Machine Learning",
-  "Docker", "PostgreSQL", "MongoDB", "Supabase", "Redis",
-  "GitHub Actions", "Linux", "Git", "REST APIs", "WebSockets",
-  "JWT", "Stripe", "M-Pesa", "Prompt Engineering", "Computer Vision",
+  "Node.js", "Express", "Python", "FastAPI", "Flask",
+  "M-Pesa Daraja API", "OpenAI API", "PostgreSQL", "Prisma ORM",
+  "Docker", "MySQL", "Supabase", "Redis", "TanStack Query",
+  "GitHub Actions", "Linux", "REST APIs", "WebSockets",
 ];
 
 export default function Skills() {
   return (
     <section id="skills" className="relative mx-auto max-w-7xl px-6 py-28 lg:px-8">
       {/* Background glow */}
-      <div className="absolute right-0 top-1/3 -z-10 h-80 w-80 rounded-full bg-violet-600/8 blur-3xl" />
-      <div className="absolute left-0 bottom-1/3 -z-10 h-60 w-60 rounded-full bg-cyan-600/6 blur-3xl" />
+      <div className="absolute right-0 top-1/3 -z-10 h-80 w-80 rounded-full bg-[#FE5101]/5 blur-3xl pointer-events-none" />
+      <div className="absolute left-0 bottom-1/3 -z-10 h-60 w-60 rounded-full bg-[#FE5101]/5 blur-3xl pointer-events-none" />
 
       {/* Heading */}
       <motion.div
@@ -46,36 +45,35 @@ export default function Skills() {
         transition={{ duration: 0.7 }}
         className="text-center"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/8 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-violet-400">
-          ⚙️ Tech Stack
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/30 bg-[#FE5101]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FE5101]">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
+          Technical Disciplines
         </div>
-        <h2 className="mt-5 text-5xl font-black text-white md:text-6xl">
-          Skills &{" "}
-          <span className="gradient-text">Technologies</span>
+        <h2 className="mt-5 font-display text-4xl sm:text-6xl font-black text-white tracking-tight">
+          Capabilities &amp; <span className="text-[#FE5101]">Core Stack</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-500">
-          Full ownership across the entire stack — from sleek UIs to intelligent backends
-          and automated cloud pipelines.
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-white/60 leading-relaxed font-sans">
+          Full ownership across the engineering lifecycle — from database schema design and FinTech integrations to high-velocity frontend interfaces.
         </p>
       </motion.div>
 
       {/* Core Proficiencies */}
       <div className="mt-16 grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-white/8 bg-[#0a0f1a] p-6 lg:p-8">
+        <div className="rounded-2xl border border-white/8 bg-[#080808] p-6 lg:p-8">
           <h3 className="mb-6 text-lg font-bold text-white flex items-center gap-2">
-            <span className="text-blue-400">⚡</span> Core Stack
+            <span className="text-[#FE5101]">⚡</span> Core Development Stack
           </h3>
           <div className="space-y-5">
             {[
-              { name: "Next.js & React", level: 95, label: "Expert" },
-              { name: "TypeScript", level: 90, label: "Expert" },
-              { name: "Node.js & Express", level: 85, label: "Advanced" },
-              { name: "Python", level: 80, label: "Advanced" },
+              { name: "TypeScript / Next.js / React", level: 95, label: "Advanced" },
+              { name: "Python / Flask / FastAPI", level: 90, label: "Advanced" },
+              { name: "PostgreSQL & Prisma ORM", level: 88, label: "Advanced" },
+              { name: "M-Pesa Daraja Payment APIs", level: 92, label: "Specialist" },
             ].map((skill, i) => (
               <div key={skill.name}>
                 <div className="mb-2 flex justify-between text-xs font-semibold">
-                  <span className="text-slate-300">{skill.name}</span>
-                  <span className="text-blue-400">{skill.label}</span>
+                  <span className="text-white/80">{skill.name}</span>
+                  <span className="text-[#FE5101] font-mono">{skill.label}</span>
                 </div>
                 <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/5">
                   <motion.div
@@ -83,7 +81,7 @@ export default function Skills() {
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 1, delay: 0.2 + i * 0.1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-blue-600 to-cyan-400"
+                    className="h-full bg-gradient-to-r from-[#FE5101] to-[#FF7A00]"
                   />
                 </div>
               </div>
@@ -91,21 +89,21 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-white/8 bg-[#0a0f1a] p-6 lg:p-8">
+        <div className="rounded-2xl border border-white/8 bg-[#080808] p-6 lg:p-8">
           <h3 className="mb-6 text-lg font-bold text-white flex items-center gap-2">
-            <span className="text-violet-400">🛠️</span> Infrastructure & AI
+            <span className="text-[#FE5101]">🛠️</span> Architecture &amp; Data Rails
           </h3>
           <div className="space-y-5">
             {[
-              { name: "PostgreSQL & Supabase", level: 85, label: "Advanced" },
-              { name: "Docker", level: 80, label: "Advanced" },
-              { name: "LangChain & OpenAI", level: 70, label: "Learning" },
-              { name: "Machine Learning", level: 60, label: "Learning" },
+              { name: "Multi-Tenant Row-Level Security", level: 90, label: "Specialist" },
+              { name: "Docker Containerization & CI/CD", level: 85, label: "Proficient" },
+              { name: "TanStack Query & State Synchronization", level: 90, label: "Advanced" },
+              { name: "RESTful API Design & OpenAPI", level: 92, label: "Advanced" },
             ].map((skill, i) => (
               <div key={skill.name}>
                 <div className="mb-2 flex justify-between text-xs font-semibold">
-                  <span className="text-slate-300">{skill.name}</span>
-                  <span className="text-violet-400">{skill.label}</span>
+                  <span className="text-white/80">{skill.name}</span>
+                  <span className="text-[#FE5101] font-mono">{skill.label}</span>
                 </div>
                 <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/5">
                   <motion.div
@@ -113,7 +111,7 @@ export default function Skills() {
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 1, delay: 0.2 + i * 0.1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-violet-600 to-purple-400"
+                    className="h-full bg-gradient-to-r from-[#FE5101] to-[#FF4500]"
                   />
                 </div>
               </div>
@@ -133,34 +131,19 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#0a0f1a] p-6 transition-all duration-500 hover:border-white/15"
-              style={{
-                boxShadow: `0 0 0 rgba(0,0,0,0)`,
-              }}
-              whileHover={{
-                y: -4,
-                boxShadow: `0 20px 60px ${group.glow ?? "rgba(59,130,246,0.15)"}`,
-              }}
+              className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#080808] p-6 transition-all duration-300 hover:border-[#FE5101]/30 hover:bg-[#0c0c0c]"
             >
-              {/* Top gradient bar */}
-              <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${group.color} opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
-
-              {/* Bg glow */}
-              <div
-                className={`absolute -top-12 -right-12 h-40 w-40 rounded-full bg-gradient-to-br ${group.color} opacity-0 transition-opacity duration-500 group-hover:opacity-8 blur-3xl`}
-              />
-
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${group.color} text-lg shadow-lg`}>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-lg">
                     {group.icon}
                   </div>
                   <div>
                     <h3 className="font-bold text-white">{group.title}</h3>
-                    <p className="text-[11px] text-slate-600">{meta.description}</p>
+                    <p className="text-[11px] text-white/50">{meta.description}</p>
                   </div>
                 </div>
-                <span className="rounded-full bg-white/4 px-3 py-1 text-[11px] font-mono text-slate-500">
+                <span className="rounded-full bg-white/5 px-3 py-1 text-[11px] font-mono text-white/60">
                   {group.skills.length} skills
                 </span>
               </div>
@@ -173,7 +156,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 + j * 0.04, duration: 0.3 }}
-                    className="tech-pill cursor-default select-none"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-white/10 bg-white/5 text-white/70 hover:border-[#FE5101]/40 hover:text-white transition-colors cursor-default select-none"
                   >
                     {skill}
                   </motion.span>
@@ -186,8 +169,8 @@ export default function Skills() {
 
       {/* Scrolling tech tape */}
       <div className="mt-16 relative overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-20 z-10 bg-gradient-to-r from-[#020408] to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-[#020408] to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none" />
 
         <motion.div
           className="flex gap-4 w-max"
@@ -197,9 +180,9 @@ export default function Skills() {
           {[...allTech, ...allTech].map((tech, i) => (
             <div
               key={`${tech}-${i}`}
-              className="flex items-center gap-2 rounded-full border border-white/6 bg-white/3 px-4 py-2 text-[11px] font-mono text-slate-500 whitespace-nowrap"
+              className="flex items-center gap-2 rounded-full border border-white/8 bg-[#080808] px-4 py-2 text-[11px] font-mono text-white/60 whitespace-nowrap"
             >
-              <span className="h-1 w-1 rounded-full bg-blue-500/60" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FE5101]" />
               {tech}
             </div>
           ))}

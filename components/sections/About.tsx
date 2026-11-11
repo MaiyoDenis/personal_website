@@ -1,33 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Target, MapPin } from "lucide-react";
+import { User, Code, Target, MapPin, Zap } from "lucide-react";
 
 const pillars = [
   {
     icon: Code,
-    title: "Engineering",
-    description: "I write clean, typed, and scalable code. Next.js, Node, and Python are my daily drivers.",
-    glow: "rgba(59,130,246,0.2)",
-    color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    title: "Resilient Systems",
+    description: "Production TypeScript, Python, and PostgreSQL architectures built for high-concurrency and strict data integrity.",
+    glow: "rgba(254,81,1,0.25)",
+    color: "text-[#FE5101] bg-[#FE5101]/10 border-[#FE5101]/25",
   },
   {
     icon: Target,
-    title: "Product-Minded",
-    description: "I care about the user. A feature isn't done when the code works, it's done when it solves the problem.",
-    glow: "rgba(139,92,246,0.2)",
-    color: "text-violet-400 bg-violet-500/10 border-violet-500/20",
+    title: "FinTech & Real-Time Rails",
+    description: "Deep expertise in automated M-Pesa STK push, C2B callback engines, and multi-tenant financial data isolation.",
+    glow: "rgba(254,81,1,0.2)",
+    color: "text-white bg-white/10 border-white/20",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-7xl px-6 py-28 lg:px-8">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-0 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-600/5 blur-[100px]" />
+    <section id="about" className="relative mx-auto max-w-7xl px-6 py-28 lg:px-8 overflow-hidden">
+      {/* ── Feathered Ambient Flame Lighting (Directly Behind Title & Story) ── */}
+      <div 
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-12 -left-12 w-[600px] sm:w-[800px] h-[550px] sm:h-[700px] opacity-75 z-0"
+        style={{
+          background: "radial-gradient(ellipse at 20% 30%, rgba(254, 81, 1, 0.5) 0%, rgba(220, 35, 0, 0.28) 32%, rgba(120, 15, 0, 0.1) 58%, transparent 75%)",
+          filter: "blur(70px)",
+        }}
+      />
+      {/* Soft inner feathered core */}
+      <div 
+        aria-hidden="true"
+        className="pointer-events-none absolute top-8 left-8 w-[320px] h-[260px] opacity-45 z-0"
+        style={{
+          background: "radial-gradient(circle at center, rgba(255, 110, 20, 0.55) 0%, rgba(254, 81, 1, 0.25) 50%, transparent 80%)",
+          filter: "blur(55px)",
+        }}
+      />
       
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-8 items-center">
-        
+      <div className="relative z-10 grid gap-12 lg:grid-cols-12 lg:gap-8 items-center">
         {/* Left: Text & Story */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
@@ -36,34 +51,33 @@ export default function About() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col justify-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/8 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-blue-400 w-fit mb-6">
-            <User size={14} />
-            About Me
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/30 bg-[#FE5101]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FE5101] w-fit mb-6">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
+            Philosophy &amp; Background
           </div>
           
-          <h2 className="text-4xl font-black text-white md:text-5xl mb-6">
-            Hi, I&apos;m Denis. I turn complex problems into <span className="gradient-text">elegant software</span>.
+          <h2 className="font-display text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
+            Architecting robust software with <span className="text-[#FE5101]">uncompromising clarity</span>.
           </h2>
           
-          <div className="space-y-4 text-lg text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-base sm:text-lg text-white/60 leading-relaxed font-sans">
             <p>
-              I am a Full-Stack and AI Engineer based in Kenya. I specialize in building end-to-end platforms—from 
-              architecting scalable cloud backends to crafting premium, motion-rich user interfaces.
+              I am a Full-Stack Systems Architect based in Nairobi, Kenya. I engineer production platforms—from 
+              mission-critical FinTech backends and automated payment pipelines to high-impact, motion-rich user experiences.
             </p>
             <p>
-              I don&apos;t just write code; I build products. Whether it&apos;s integrating AI tutors or 
-              automating complex business workflows like WiFi billing systems, I focus on delivering real-world value fast.
+              My philosophy matches modern engineering studios: clarity first, then the system. Every feature, schema, and API call exists to solve tangible business problems with verifiable durability.
             </p>
           </div>
           
-          <div className="mt-8 flex items-center gap-4">
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-              <MapPin size={16} className="text-emerald-400" />
-              Nairobi, Kenya (Remote)
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-mono text-white/70">
+              <MapPin size={14} className="text-[#FE5101]" />
+              Nairobi, Kenya (Remote / Worldwide)
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-              <span className="status-dot" />
-              Available for new roles
+            <div className="flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2 text-xs font-mono text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              Available for ambitious projects
             </div>
           </div>
         </motion.div>
@@ -79,21 +93,20 @@ export default function About() {
           {pillars.map((pillar) => (
              <div 
                key={pillar.title}
-               className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#0a0f1a] p-6 transition-all duration-300 hover:border-white/15"
+               className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#080808] p-6 transition-all duration-300 hover:border-[#FE5101]/40 hover:bg-[#0c0c0c]"
              >
                <div 
                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                 style={{ background: `radial-gradient(250px circle at 100% 0%, ${pillar.glow}, transparent 80%)` }}
+                 style={{ background: `radial-gradient(280px circle at 100% 0%, ${pillar.glow}, transparent 80%)` }}
                />
                <div className={`mb-4 inline-flex items-center justify-center rounded-xl border p-2.5 ${pillar.color}`}>
                  <pillar.icon size={20} />
                </div>
                <h3 className="mb-2 text-lg font-bold text-white">{pillar.title}</h3>
-               <p className="text-sm leading-relaxed text-slate-500">{pillar.description}</p>
+               <p className="text-sm leading-relaxed text-white/50">{pillar.description}</p>
              </div>
           ))}
         </motion.div>
-        
       </div>
     </section>
   );

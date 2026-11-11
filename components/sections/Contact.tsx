@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin, Clock, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 
@@ -11,42 +11,38 @@ const channels = [
     label: "Email",
     value: "denismaiyo14@gmail.com",
     href: "mailto:denismaiyo14@gmail.com",
-    color: "from-blue-500 to-cyan-400",
-    glow: "rgba(59,130,246,0.25)",
-    description: "Best for serious opportunities",
+    color: "from-[#FE5101] to-[#FF7A00]",
+    glow: "rgba(254,81,1,0.25)",
+    description: "Primary channel for collaborations & contracts",
   },
   {
     icon: LinkedinIcon,
     label: "LinkedIn",
     value: "linkedin.com/in/MaiyoDenis",
     href: "https://linkedin.com/in/MaiyoDenis",
-    color: "from-blue-600 to-blue-400",
-    glow: "rgba(37,99,235,0.25)",
-    description: "Professional network",
+    color: "from-white to-white/70",
+    glow: "rgba(255,255,255,0.15)",
+    description: "Professional profile & updates",
   },
   {
     icon: GithubIcon,
     label: "GitHub",
     value: "github.com/MaiyoDenis",
     href: "https://github.com/MaiyoDenis",
-    color: "from-slate-500 to-slate-400",
-    glow: "rgba(100,116,139,0.25)",
-    description: "See all my work",
+    color: "from-white/80 to-white/50",
+    glow: "rgba(255,255,255,0.1)",
+    description: "Explore all source code & repositories",
   },
 ];
 
 export default function Contact() {
   return (
     <section id="contact" className="relative mx-auto max-w-6xl px-6 py-28 lg:px-8">
-      {/* Glow orbs */}
-      <div className="absolute left-0 top-0 -z-10 h-96 w-96 rounded-full bg-blue-600/8 blur-3xl" />
-      <div className="absolute right-0 bottom-0 -z-10 h-80 w-80 rounded-full bg-violet-600/8 blur-3xl" />
+      {/* Flame glow orbs */}
+      <div className="absolute left-0 top-0 -z-10 h-96 w-96 rounded-full bg-[#FE5101]/6 blur-3xl pointer-events-none" />
+      <div className="absolute right-0 bottom-0 -z-10 h-80 w-80 rounded-full bg-[#FE5101]/4 blur-3xl pointer-events-none" />
 
-      <div className="overflow-hidden rounded-3xl border border-white/8 bg-[#0a0f1a] p-8 md:p-14">
-        {/* Inner glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_0%,rgba(59,130,246,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_100%,rgba(168,85,247,0.05),transparent_60%)]" />
-
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#080808] p-8 md:p-14 shadow-2xl">
         <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
           {/* Left - CTA */}
           <motion.div
@@ -55,58 +51,53 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/8 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-green-400 mb-6">
-              <span className="status-dot" />
-              Open to Opportunities
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/30 bg-[#FE5101]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FE5101] mb-6">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
+              Start a Conversation
             </div>
 
-            <h2 className="text-4xl font-black text-white md:text-5xl leading-tight">
-              Let&apos;s Build{" "}
-              <span className="gradient-text">Something</span>
-              <br />
-              Amazing Together
+            <h2 className="font-display text-4xl sm:text-5xl font-black text-white leading-tight">
+              Let&apos;s build <span className="text-[#FE5101]">resilient systems</span> together.
             </h2>
 
-            <p className="mt-6 text-lg leading-relaxed text-slate-500">
-              I&apos;m actively looking for{" "}
-              <span className="text-white font-medium">full-time engineering roles</span> and{" "}
-              <span className="text-white font-medium">contract projects</span>. Whether you&apos;re
-              a startup, scale-up, or established company — if you need a driven full-stack or AI
-              engineer who ships, let&apos;s talk.
+            <p className="mt-6 text-sm sm:text-base leading-relaxed text-white/60 font-sans">
+              I am available for <span className="text-white font-medium">engineering roles</span>,{" "}
+              <span className="text-white font-medium">FinTech architecture contracts</span>, and ambitious digital ventures. 
+              Let&apos;s turn complex workflows into scalable, verified platforms.
             </p>
 
             {/* Quick facts */}
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center gap-3 text-sm text-slate-500">
-                <MapPin size={14} className="text-blue-400 shrink-0" />
-                Nairobi, Kenya · Remote-first
+            <div className="mt-8 space-y-3 font-mono text-xs text-white/50">
+              <div className="flex items-center gap-3">
+                <MapPin size={14} className="text-[#FE5101] shrink-0" />
+                Nairobi, Kenya · Available Worldwide
               </div>
-              <div className="flex items-center gap-3 text-sm text-slate-500">
-                <Clock size={14} className="text-green-400 shrink-0" />
-                Available immediately · UTC+3
+              <div className="flex items-center gap-3">
+                <Clock size={14} className="text-emerald-400 shrink-0" />
+                Available Immediately · EAT (UTC+3)
               </div>
-              <div className="flex items-center gap-3 text-sm text-slate-500">
-                <MessageSquare size={14} className="text-violet-400 shrink-0" />
-                Response time: within 24 hours
+              <div className="flex items-center gap-3">
+                <MessageSquare size={14} className="text-[#FE5101] shrink-0" />
+                Response time: Within 24 hours
               </div>
             </div>
 
-            {/* Primary CTA */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            {/* Kontour-style Pill CTAs */}
+            <div className="mt-10 flex flex-wrap gap-4 items-center">
               <Link
                 href="mailto:denismaiyo14@gmail.com"
-                className="group inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:shadow-blue-600/40 hover:scale-[1.02] hover:-translate-y-0.5 shine"
+                className="group inline-flex items-center gap-3 rounded-full bg-white pl-6 pr-2 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-[#F2F2F2] hover:scale-[1.02] shadow-xl"
               >
-                <Mail size={15} />
-                Email Me
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                <span>Email Me Directly</span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight size={15} />
+                </span>
               </Link>
               <Link
                 href="mailto:denismaiyo14@gmail.com?subject=Let's%20have%20a%20chat!"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/4 px-7 py-3.5 text-sm font-semibold text-slate-300 backdrop-blur-sm transition-all hover:bg-white/8 hover:border-white/20 hover:text-white hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white/80 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/[0.08] hover:text-white"
               >
-                <Clock size={15} className="text-violet-400" />
-                Book 30-min Call
+                Schedule a Call
               </Link>
             </div>
           </motion.div>
@@ -119,8 +110,8 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="flex flex-col gap-4"
           >
-            <p className="text-sm font-medium text-slate-600 uppercase tracking-widest mb-2">
-              Reach me directly
+            <p className="text-xs font-mono text-white/40 uppercase tracking-[0.2em] mb-2 font-semibold">
+              Direct Channels
             </p>
 
             {channels.map((c, i) => (
@@ -135,44 +126,28 @@ export default function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/3 p-4 transition-all duration-300 hover:border-white/15 hover:bg-white/6 hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/8 bg-[#0c0c0c] p-4 transition-all duration-300 hover:border-[#FE5101]/40 hover:bg-[#121212]"
                 >
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${c.color} shadow-md transition-transform group-hover:scale-110`}
-                    style={{ boxShadow: `0 6px 16px ${c.glow}` }}
-                  >
-                    <c.icon size={17} className="text-white" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white group-hover:border-[#FE5101]/40 group-hover:text-[#FE5101] transition-colors">
+                    <c.icon size={18} />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-slate-600 uppercase tracking-wider">{c.label}</p>
-                    <p className="mt-0.5 truncate text-sm font-semibold text-white">{c.value}</p>
-                    <p className="mt-0.5 text-xs text-slate-600">{c.description}</p>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-white group-hover:text-[#FE5101] transition-colors">
+                        {c.label}
+                      </span>
+                      <ArrowUpRight size={14} className="text-white/40 group-hover:text-[#FE5101] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                    <div className="font-mono text-xs text-white/60 truncate mt-0.5">
+                      {c.value}
+                    </div>
+                    <div className="text-[11px] text-white/40 mt-0.5">
+                      {c.description}
+                    </div>
                   </div>
-                  <ArrowRight
-                    size={14}
-                    className="shrink-0 text-slate-700 transition-all group-hover:text-slate-400 group-hover:translate-x-1"
-                  />
                 </Link>
               </motion.div>
             ))}
-
-            {/* Availability card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="rounded-xl border border-green-500/15 bg-green-500/5 p-4"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <span className="status-dot" />
-                <span className="text-xs font-semibold text-green-400 uppercase tracking-wider">Currently Available</span>
-              </div>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Open to full-time roles, contract work, and exciting startup opportunities.
-                Kenya-based but 100% remote-ready.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>
