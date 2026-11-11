@@ -6,7 +6,7 @@ import HeroRight from "./HeroRight";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20 lg:pt-32 lg:pb-24 bg-black">
+    <section className="relative min-h-[92vh] lg:min-h-[95vh] lg:h-[95vh] flex flex-col justify-end overflow-hidden pt-20 sm:pt-24 lg:pt-20 pb-0 bg-black">
       {/* ── 1. Top-Left Volumetric Radiant Glow ── */}
       <div
         aria-hidden="true"
@@ -29,22 +29,22 @@ export default function Hero() {
           width={2144}
           height={733}
           priority
-          className="w-full h-auto max-h-[260px] sm:max-h-[340px] lg:max-h-[380px] object-cover object-bottom opacity-85 mix-blend-screen"
+          className="w-full h-auto max-h-[220px] sm:max-h-[300px] lg:max-h-[360px] object-cover object-bottom opacity-85 mix-blend-screen"
         />
         {/* Soft bottom edge fade */}
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-black to-transparent" />
       </div>
 
       {/* ── 3. Main Hero Two-Column Grid ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 lg:px-8 pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-end">
           {/* Left Column: Greeting, Name, Role, Features, CTAs, Socials (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <div className="lg:col-span-7 flex flex-col justify-end pb-8 sm:pb-12 lg:pb-10">
             <HeroLeft />
           </div>
 
           {/* Right Column: Glowing Ring, Floating Tech Pills, Portrait & Building Card (5 cols) */}
-          <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="lg:col-span-5 flex items-end justify-center self-end">
             <HeroRight />
           </div>
         </div>

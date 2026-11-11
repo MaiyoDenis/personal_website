@@ -26,39 +26,39 @@ const buildingList = [
 
 export default function HeroRight() {
   return (
-    <div className="relative w-full max-w-[620px] mx-auto flex items-center justify-center min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] select-none">
-      {/* ── 1. Volumetric Flame Ambient Glow ── */}
+    <div className="relative w-full max-w-[500px] sm:max-w-[560px] lg:max-w-[620px] flex items-end justify-center select-none pb-0">
+      {/* ── 1. Volumetric Flame Ambient Glow (Centered behind Denis's head/neck at 58% X) ── */}
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[520px] h-[420px] sm:h-[520px] rounded-full pointer-events-none z-0"
+        className="absolute top-[30%] left-[58%] -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] rounded-full pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(circle at center, rgba(254, 81, 1, 0.45) 0%, rgba(220, 35, 0, 0.2) 42%, transparent 72%)",
+            "radial-gradient(circle at center, rgba(254, 81, 1, 0.48) 0%, rgba(220, 35, 0, 0.22) 42%, transparent 72%)",
           filter: "blur(60px)",
         }}
       />
 
-      {/* ── 2. Glowing Neon Orange Ring (Behind Head & Shoulders) ── */}
+      {/* ── 2. Glowing Neon Orange Ring (Accurately centered at 58% X, arching over cap) ── */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         aria-hidden="true"
-        className="absolute top-[6%] sm:top-[8%] lg:top-[9%] left-1/2 -translate-x-1/2 w-[310px] sm:w-[390px] lg:w-[430px] h-[310px] sm:h-[390px] lg:h-[430px] rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
+        className="absolute -top-3 sm:-top-5 lg:-top-6 left-[58%] -translate-x-1/2 w-[330px] sm:w-[410px] lg:w-[460px] h-[330px] sm:h-[410px] lg:h-[460px] rounded-full border-[3.5px] border-[#FE5101] pointer-events-none z-10"
         style={{
           boxShadow:
             "0 0 25px #FE5101, 0 0 50px rgba(254, 81, 1, 0.85), 0 0 90px rgba(254, 81, 1, 0.5), inset 0 0 25px rgba(254, 81, 1, 0.35)",
           maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 90%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 86%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 90%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 86%)",
         }}
       />
 
-      {/* ── 3. Top-Right Intense Neon Flare / Hotspot (Matches 1-2 o'clock burst) ── */}
+      {/* ── 3. Top-Right Intense Neon Flare / Hotspot (Matches 1-2 o'clock burst on ring) ── */}
       <div
         aria-hidden="true"
-        className="absolute top-[6%] sm:top-[7%] right-[16%] sm:right-[18%] lg:right-[20%] w-36 h-36 rounded-full pointer-events-none z-10 opacity-90"
+        className="absolute -top-2 sm:-top-3 right-[8%] sm:right-[10%] lg:right-[12%] w-36 h-36 rounded-full pointer-events-none z-10 opacity-90"
         style={{
           background:
             "radial-gradient(circle at center, rgba(255, 150, 50, 0.95) 0%, rgba(254, 81, 1, 0.7) 35%, rgba(220, 35, 0, 0.2) 60%, transparent 80%)",
@@ -72,7 +72,7 @@ export default function HeroRight() {
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 0.8, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="hidden sm:block absolute top-[22%] left-0 -translate-x-4 lg:-translate-x-10 w-48 rounded-xl border border-white/10 bg-[#090a0f]/90 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
+        className="hidden sm:block absolute top-[22%] left-0 -translate-x-2 lg:-translate-x-6 w-48 rounded-xl border border-white/10 bg-[#090a0f]/90 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
       >
         <div className="flex items-center gap-1.5 pb-2 mb-2 border-b border-white/8">
           <div className="h-2 w-2 rounded-full bg-rose-500/80" />
@@ -95,7 +95,7 @@ export default function HeroRight() {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 0.8, x: 0 }}
         transition={{ duration: 0.8, delay: 0.25 }}
-        className="hidden sm:block absolute top-[28%] right-0 translate-x-4 lg:translate-x-8 w-52 rounded-xl border border-white/10 bg-[#090a0f]/90 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
+        className="hidden sm:block absolute top-[26%] right-0 translate-x-2 lg:translate-x-4 w-52 rounded-xl border border-white/10 bg-[#090a0f]/90 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
       >
         <div className="flex items-center gap-1.5 pb-2 mb-2 border-b border-white/8">
           <div className="h-2 w-2 rounded-full bg-rose-500/80" />
@@ -112,12 +112,12 @@ export default function HeroRight() {
         </div>
       </motion.div>
 
-      {/* ── 5. Main Subject: Denis Maiyo Cut-out (profile.png) ── */}
+      {/* ── 5. Main Subject: Denis Maiyo Cut-out (profile.png) resting directly on bottom ── */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-20 w-[300px] sm:w-[420px] lg:w-[480px] max-w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+        className="relative z-20 w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
       >
         <Image
           src="/images/profile.png"
@@ -125,12 +125,12 @@ export default function HeroRight() {
           width={1312}
           height={1199}
           priority
-          className="w-full h-auto object-contain pointer-events-none select-none"
+          className="w-full h-auto object-contain pointer-events-none select-none block"
         />
       </motion.div>
 
       {/* ── 6. Left Stack of Floating Tech Pills ── */}
-      <div className="absolute left-0 top-[28%] -translate-x-2 sm:-translate-x-6 lg:-translate-x-12 z-30 flex flex-col gap-2.5">
+      <div className="absolute left-0 top-[22%] -translate-x-2 sm:-translate-x-4 lg:-translate-x-8 z-30 flex flex-col gap-2.5">
         {techStack.map((tech, i) => (
           <motion.div
             key={tech.name}
@@ -155,7 +155,7 @@ export default function HeroRight() {
         initial={{ opacity: 0, y: -20, rotate: -7 }}
         animate={{ opacity: 1, y: 0, rotate: -7 }}
         transition={{ duration: 0.7, delay: 0.35 }}
-        className="absolute top-4 sm:top-6 right-0 sm:-right-4 lg:-right-8 z-30 pointer-events-none text-right"
+        className="absolute top-2 sm:top-4 right-0 sm:-right-2 lg:-right-4 z-30 pointer-events-none text-right"
       >
         <p className="font-script text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#E29D6E] leading-[1.05] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
           Turning ambitious<br />
@@ -169,7 +169,7 @@ export default function HeroRight() {
         initial={{ opacity: 0, scale: 0.9, y: 25 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="absolute bottom-6 sm:bottom-12 right-0 sm:-right-4 lg:-right-6 z-30 rounded-2xl border border-[#FE5101]/40 bg-black/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_0_35px_rgba(254,81,1,0.25)] w-44 sm:w-48 text-left"
+        className="absolute bottom-6 sm:bottom-10 right-0 sm:-right-2 lg:-right-4 z-30 rounded-2xl border border-[#FE5101]/40 bg-black/85 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_0_35px_rgba(254,81,1,0.25)] w-44 sm:w-48 text-left"
       >
         {/* Header with concentric pulse */}
         <div className="flex items-center gap-2 mb-3">
