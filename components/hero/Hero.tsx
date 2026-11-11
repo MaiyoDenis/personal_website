@@ -27,12 +27,12 @@ export default function Hero() {
           src="/images/footer.png"
           alt=""
           width={2144}
-          height={733}
+          height={230}
           priority
-          className="w-full h-auto max-h-[220px] sm:max-h-[300px] lg:max-h-[360px] object-cover object-bottom opacity-85 mix-blend-screen"
+          className="w-full h-auto max-h-[170px] sm:max-h-[220px] lg:max-h-[260px] object-cover object-bottom opacity-90 mix-blend-screen"
         />
         {/* Soft bottom edge fade */}
-        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-black to-transparent" />
       </div>
 
       {/* ── 3. Main Hero Two-Column Grid ── */}
