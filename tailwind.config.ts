@@ -34,6 +34,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-space)", "sans-serif"],
+        script: ["var(--font-caveat)", "cursive"],
       },
     },
   },

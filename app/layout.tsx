@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 
@@ -18,6 +18,12 @@ const spaceGrotesk = Space_Grotesk({
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -43,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable} ${caveat.variable}`}
       >
         {children}
         <Footer />
