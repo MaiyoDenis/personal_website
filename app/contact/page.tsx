@@ -4,6 +4,7 @@ import { ArrowLeft, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import ContactForm from "./ContactForm";
 import Navbar from "@/components/layout/Navbar";
+import EngineeringBackground from "@/components/ui/EngineeringBackground";
 
 export const metadata: Metadata = {
   title: "Contact Denis Maiyo | Full-Stack & AI Engineer",
@@ -42,8 +43,9 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-28 pb-20 px-6">
-        <div className="mx-auto max-w-5xl">
+      <EngineeringBackground className="min-h-screen pt-28 pb-20">
+        <main className="px-6">
+          <div className="mx-auto max-w-5xl">
           {/* Back button */}
           <Link
             href="/"
@@ -126,6 +128,7 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      </EngineeringBackground>
     </>
   );
 }

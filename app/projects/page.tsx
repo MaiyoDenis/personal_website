@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/layout/Navbar";
+import EngineeringBackground from "@/components/ui/EngineeringBackground";
 
 export const metadata: Metadata = {
   title: "Projects & Case Studies | Denis Maiyo",
@@ -16,9 +17,10 @@ export default function ProjectsPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-28 pb-20 px-6">
-        <div className="mx-auto max-w-6xl">
-          {/* Header */}
+      <EngineeringBackground className="min-h-screen pt-28 pb-20">
+        <main className="px-6">
+          <div className="mx-auto max-w-6xl">
+            {/* Header */}
           <div className="mb-12">
             <Link
               href="/"
@@ -177,6 +179,7 @@ export default function ProjectsPage() {
           </div>
         </div>
       </main>
+      </EngineeringBackground>
     </>
   );
 }

@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink, CheckCircle2, Terminal, Layers, Globe } from "
 import { GithubIcon } from "@/components/ui/Icons";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/layout/Navbar";
+import EngineeringBackground from "@/components/ui/EngineeringBackground";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -44,9 +45,10 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-28 pb-20 px-6">
-        <div className="mx-auto max-w-4xl">
-          {/* Breadcrumb / Back Navigation */}
+      <EngineeringBackground className="min-h-screen pt-28 pb-20">
+        <main className="px-6">
+          <div className="mx-auto max-w-4xl">
+            {/* Breadcrumb / Back Navigation */}
           <div className="flex items-center gap-3 text-sm text-slate-400 mb-8">
             <Link
               href="/#projects"
@@ -261,6 +263,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
       </main>
+      </EngineeringBackground>
     </>
   );
 }

@@ -8,6 +8,7 @@ import Journey from "@/components/sections/Journey";
 import Products from "@/components/sections/Products";
 import Mission from "@/components/sections/Mission";
 import Contact from "@/components/sections/Contact";
+import EngineeringBackground from "@/components/ui/EngineeringBackground";
 
 function SectionDivider() {
   return (
@@ -20,22 +21,27 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        {/* Hero section stays clean with its own city background as requested */}
         <Hero />
-        <SectionDivider />
-        <About />
-        <SectionDivider />
-        <Projects />
-        <GithubSection />
-        <SectionDivider />
-        <Skills />
-        <SectionDivider />
-        <Journey />
-        <SectionDivider />
-        <Products />
-        <SectionDivider />
-        <Mission />
-        <SectionDivider />
-        <Contact />
+
+        {/* All subsequent sections wrapped in EngineeringBackground */}
+        <EngineeringBackground>
+          <SectionDivider />
+          <About />
+          <SectionDivider />
+          <Projects />
+          <GithubSection />
+          <SectionDivider />
+          <Skills />
+          <SectionDivider />
+          <Journey />
+          <SectionDivider />
+          <Products />
+          <SectionDivider />
+          <Mission />
+          <SectionDivider />
+          <Contact />
+        </EngineeringBackground>
       </main>
     </>
   );
