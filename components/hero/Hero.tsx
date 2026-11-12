@@ -7,10 +7,31 @@ import HeroRight from "./HeroRight";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pb-16 lg:pt-20 lg:pb-8 bg-[#050505]">
+
+      {/* ── 0. City Skyline Background Image ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 select-none"
+      >
+        <Image
+          src="/images/background.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-80 mix-blend-luminosity"
+        />
+        {/* Dark overlay — heavy left (text readable), light right (city glows) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/92 via-[#050505]/40 to-[#050505]/10" />
+        {/* Top & bottom fade into the page bg */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#050505] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
+      </div>
+
       {/* ── 1. Top-Left Volumetric Ambient Glow (Burnt Orange & Dark Rust) ── */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -left-24 w-[550px] sm:w-[750px] lg:w-[900px] h-[500px] sm:h-[700px] opacity-50 z-0"
+        className="pointer-events-none absolute -top-24 -left-24 w-[550px] sm:w-[750px] lg:w-[900px] h-[500px] sm:h-[700px] opacity-50 z-[1]"
         style={{
           background:
             "radial-gradient(ellipse at 15% 15%, rgba(255, 90, 0, 0.45) 0%, rgba(180, 45, 0, 0.22) 32%, rgba(100, 20, 0, 0.08) 58%, transparent 75%)",

@@ -40,79 +40,38 @@ export default function HeroRight() {
           }}
         />
 
-        {/* ── 2. Glowing Neon Orange Ring (Centered tightly behind head, clear of quote) ── */}
+        {/* ── 2. Glowing Neon Orange Ring ──
+            Mathematically centered: Denis body center=58%, crown at top=0%,
+            radius=35% → arcs appear at x≈40% (left) and x≈76% (right) at head level,
+            both outside Denis's body (52%-64%) so both sides ARE visible. ── */}
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           aria-hidden="true"
-          className="absolute -top-[5%] left-[51%] -translate-x-1/2 w-[58%] sm:w-[58%] lg:w-[60%] aspect-square rounded-full border-[3px] border-[#FF5A00] pointer-events-none z-10"
+          className="absolute top-[0%] left-[58%] -translate-x-1/2 w-[70%] aspect-square rounded-full border-[2.5px] border-[#FF5A00] pointer-events-none z-10"
           style={{
             boxShadow:
-              "0 0 25px #FF5A00, 0 0 55px rgba(255, 90, 0, 0.85), 0 0 95px rgba(255, 90, 0, 0.45), inset 0 0 25px rgba(255, 90, 0, 0.35)",
+              "0 0 22px #FF5A00, 0 0 55px rgba(255, 90, 0, 0.85), 0 0 100px rgba(255, 90, 0, 0.45), inset 0 0 22px rgba(255, 90, 0, 0.3)",
             maskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 88%)",
+              "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 85%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 88%)",
+              "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 85%)",
           }}
         />
 
-        {/* ── 3. Top-Right Intense Neon Flare / Hotspot (Right on the ring at 1-2 o'clock) ── */}
+        {/* ── 3. Orange Neon Flare — sits at the crown of the ring (top-center) ── */}
         <div
           aria-hidden="true"
-          className="absolute -top-[2%] right-[20%] sm:right-[22%] w-32 h-32 rounded-full pointer-events-none z-10 opacity-90"
+          className="absolute -top-[2%] left-[58%] -translate-x-1/2 w-36 h-36 rounded-full pointer-events-none z-10 opacity-95"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(255, 160, 60, 0.95) 0%, rgba(255, 90, 0, 0.7) 35%, rgba(180, 35, 0, 0.18) 60%, transparent 80%)",
-            filter: "blur(20px)",
+              "radial-gradient(circle at center, rgba(255, 190, 60, 1) 0%, rgba(255, 90, 0, 0.8) 35%, rgba(180, 35, 0, 0.18) 60%, transparent 80%)",
+            filter: "blur(16px)",
           }}
         />
 
-        {/* ── 4. Floating Code Windows (Left & Right behind subject with warm palette) ── */}
-        {/* Left Code Window */}
-        <motion.div
-          initial={{ opacity: 0, x: -25 }}
-          animate={{ opacity: 0.85, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden sm:block absolute top-[20%] left-[-4%] w-48 rounded-xl border border-white/10 bg-[#08080c]/92 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
-        >
-          <div className="flex items-center gap-1.5 pb-2 mb-2 border-b border-white/8">
-            <div className="h-2 w-2 rounded-full bg-rose-500/80" />
-            <div className="h-2 w-2 rounded-full bg-amber-500/80" />
-            <div className="h-2 w-2 rounded-full bg-emerald-500/80" />
-          </div>
-          <div className="space-y-1 text-white/70">
-            <p className="text-[#FF5A00]">const ai = new Agent({`{`}</p>
-            <p className="pl-2">pipeline: <span className="text-[#FFB088]">&apos;live&apos;</span>,</p>
-            <p className="pl-2">stream: <span className="text-amber-300">true</span>,</p>
-            <p className="pl-2">speed: <span className="text-white/90">&apos;12ms&apos;</span></p>
-            <p className="text-[#FF5A00]">{`}`});</p>
-            <p className="text-white/40">// deploy model</p>
-            <p className="text-[#FF7A2B]">await ai.solve();</p>
-          </div>
-        </motion.div>
-
-        {/* Right Code Window */}
-        <motion.div
-          initial={{ opacity: 0, x: 25 }}
-          animate={{ opacity: 0.85, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="hidden sm:block absolute top-[24%] right-[-2%] w-52 rounded-xl border border-white/10 bg-[#08080c]/92 p-3 shadow-2xl backdrop-blur-md z-10 font-mono text-[9px] pointer-events-none"
-        >
-          <div className="flex items-center gap-1.5 pb-2 mb-2 border-b border-white/8">
-            <div className="h-2 w-2 rounded-full bg-rose-500/80" />
-            <div className="h-2 w-2 rounded-full bg-amber-500/80" />
-            <div className="h-2 w-2 rounded-full bg-emerald-500/80" />
-          </div>
-          <div className="space-y-1 text-white/70">
-            <p className="text-[#FF7A2B]">interface Architecture {`{`}</p>
-            <p className="pl-2">uptime: <span className="text-white/90">&apos;99.9%&apos;</span>;</p>
-            <p className="pl-2">concurrency: <span className="text-[#FFB088]">10000</span>;</p>
-            <p className="pl-2">latency: <span className="text-amber-300">&apos;&lt; 15ms&apos;</span>;</p>
-            <p className="text-[#FF7A2B]">{`}`}</p>
-            <p className="text-white/40">// fintech rail active</p>
-          </div>
-        </motion.div>
+        {/* ── 4. Floating Code Windows removed — clean pill layout ── */}
 
         {/* ── 5. Main Subject: Denis Maiyo Cut-out with Soft Edge-Fade (No rectangular cutoffs) ── */}
         <motion.div
