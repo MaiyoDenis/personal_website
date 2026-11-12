@@ -8,8 +8,8 @@ export default function HeroButtons() {
         View Projects
       </PrimaryButton>
 
-      <SecondaryButton href="/resume.pdf">
-        Download CV
+      <SecondaryButton href="/resume">
+        View CV
       </SecondaryButton>
     </div>
   );
