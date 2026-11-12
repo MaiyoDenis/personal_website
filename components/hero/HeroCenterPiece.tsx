@@ -23,7 +23,7 @@ export default function HeroCenterPiece() {
       >
         <div className="relative w-full h-full">
           <Image
-            src="/images/hero-character.jpg"
+            src="/images/hero-character.webp"
             alt="Denis Maiyo Cyber Portrait"
             fill
             className="object-contain object-bottom filter contrast-105 brightness-100"

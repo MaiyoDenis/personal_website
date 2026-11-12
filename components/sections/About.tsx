@@ -28,7 +28,7 @@ export default function About() {
       {/* ── Background: Laptop image full-bleed ── */}
       <div className="pointer-events-none absolute inset-0 z-0 select-none">
         <Image
-          src="/images/lap.png"
+          src="/images/lap.webp"
           alt=""
           fill
           sizes="100vw"
@@ -157,7 +157,7 @@ export default function About() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] w-full overflow-hidden leading-none select-none"
       >
         <Image
-          src="/images/footers.png"
+          src="/images/footers.webp"
           alt=""
           width={2144}
           height={230}

@@ -88,7 +88,7 @@ export default function HeroRight() {
           }}
         >
           <Image
-            src="/images/profile.png"
+            src="/images/profile.webp"
             alt="Denis Maiyo - Full-Stack & AI Engineer"
             width={1312}
             height={1199}

@@ -149,7 +149,7 @@ export default function GithubSection() {
         className="pointer-events-none relative w-full overflow-hidden leading-none select-none mt-12 sm:mt-16"
       >
         <Image
-          src="/images/footers.png"
+          src="/images/footers.webp"
           alt=""
           width={2144}
           height={230}

@@ -46,8 +46,8 @@ export const projects: Project[] = [
       "PWA Offline Field Capabilities",
     ],
     featured: true,
-    screenshot: "/images/projects/assetmind-login.jpg",
-    screenshotHover: "/images/projects/assetmind-dashboard.jpg",
+    screenshot: "/images/projects/assetmind-login.webp",
+    screenshotHover: "/images/projects/assetmind-dashboard.webp",
   },
   {
     slug: "smart-loans",
@@ -91,8 +91,8 @@ export const projects: Project[] = [
       "Automated Collections Engine",
     ],
     featured: true,
-    screenshot: "/images/projects/fagasa-login.jpg",
-    screenshotHover: "/images/projects/fagasa-reports.jpg",
+    screenshot: "/images/projects/fagasa-login.webp",
+    screenshotHover: "/images/projects/fagasa-reports.webp",
   },
   {
     slug: "assethub-loans",
@@ -134,8 +134,8 @@ export const projects: Project[] = [
       "Type-Safe Prisma Architecture",
     ],
     featured: true,
-    screenshot: "/images/projects/assethub-marketplace.jpg",
-    screenshotHover: "/images/projects/assethub-dashboard.jpg",
+    screenshot: "/images/projects/assethub-marketplace.webp",
+    screenshotHover: "/images/projects/assethub-dashboard.webp",
   },
   {
     slug: "fagasa-loan-system",
@@ -178,8 +178,8 @@ export const projects: Project[] = [
       "Glassmorphic Design System",
     ],
     featured: true,
-    screenshot: "/images/projects/fagasa-dashboard.jpg",
-    screenshotHover: "/images/projects/fagasa-reports.jpg",
+    screenshot: "/images/projects/fagasa-dashboard.webp",
+    screenshotHover: "/images/projects/fagasa-reports.webp",
   },
   {
     slug: "omnichannel-ecommerce-pos",

@@ -14,7 +14,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 z-0 select-none"
       >
         <Image
-          src="/images/background.png"
+          src="/images/background.webp"
           alt=""
           fill
           priority
@@ -39,13 +39,13 @@ export default function Hero() {
         }}
       />
 
-      {/* ── 2. Bottom Orange Dotted Wave Mesh (footers.png) ── */}
+      {/* ── 2. Bottom Orange Dotted Wave Mesh (footers.webp) ── */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 w-full overflow-hidden leading-none select-none"
       >
         <Image
-          src="/images/footers.png"
+          src="/images/footers.webp"
           alt="Particle wave mesh"
           width={2144}
           height={230}

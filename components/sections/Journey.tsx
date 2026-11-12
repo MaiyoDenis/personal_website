@@ -289,7 +289,7 @@ export default function Journey() {
         className="pointer-events-none relative w-full overflow-hidden leading-none select-none mt-16 sm:mt-24"
       >
         <Image
-          src="/images/footers.png"
+          src="/images/footers.webp"
           alt=""
           width={2144}
           height={230}
