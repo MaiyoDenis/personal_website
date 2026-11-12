@@ -94,55 +94,82 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
-            className="md:hidden text-white/80 hover:text-white p-1"
+            className="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/90 hover:text-white hover:border-[#FE5101]/40 hover:bg-[#FE5101]/10 transition-all active:scale-95"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>
 
-      {/* ── Mobile Drawer ── */}
+      {/* ── Mobile Drawer (Premium Glassmorphism Overlay) ── */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl pt-24 px-8 md:hidden flex flex-col justify-between pb-12"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-[#050302]/95 pt-24 px-6 md:hidden flex flex-col justify-between pb-10 overflow-y-auto"
           >
-            <nav className="flex flex-col gap-5">
-              {navItems.map((item) => (
-                <Link
+            {/* Top ambient orange diffusion */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-0 right-0 w-72 h-72 opacity-30 blur-3xl"
+              style={{
+                background: "radial-gradient(circle, rgba(254,81,1,0.6) 0%, transparent 70%)",
+              }}
+            />
+
+            <nav className="relative z-10 flex flex-col gap-2 pt-4">
+              <span className="text-[10px] font-mono uppercase tracking-[0.24em] text-white/40 mb-2 font-bold px-3">
+                Navigation
+              </span>
+              {navItems.map((item, i) => (
+                <motion.div
                   key={item.name}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-xl font-semibold transition-colors ${
-                    item.active ? "text-[#FE5101]" : "text-white hover:text-[#FE5101]"
-                  }`}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * i, duration: 0.3 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-base font-semibold transition-all ${
+                      item.active
+                        ? "bg-[#FE5101]/15 text-[#FE5101] border border-[#FE5101]/30"
+                        : "text-white/80 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span>{item.name}</span>
+                    <span className="text-xs font-mono text-white/30">0{i + 1}</span>
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 
-            <div className="pt-8 border-t border-white/10 flex flex-col gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+              className="relative z-10 pt-6 border-t border-white/10 flex flex-col gap-3"
+            >
               <Link
                 href="/resume"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 py-3 text-sm font-medium text-white"
+                className="flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 py-3.5 text-xs font-semibold text-white/90 active:scale-98 transition-all"
               >
-                <Download size={16} />
-                <span>Download Resume</span>
+                <Download size={14} />
+                <span>View Full Resume</span>
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FE5101] to-[#FF6B2B] py-3 text-sm font-semibold text-white shadow-[0_0_25px_rgba(254,81,1,0.5)]"
+                className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FE5101] to-[#FF7A2B] py-3.5 text-xs font-bold text-white shadow-[0_0_25px_rgba(254,81,1,0.5)] active:scale-98 transition-all"
               >
-                <Send size={15} className="-rotate-12" />
-                <span>Hire Me</span>
+                <Send size={14} className="-rotate-12" />
+                <span>Hire Me Directly</span>
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

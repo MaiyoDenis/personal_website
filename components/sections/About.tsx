@@ -54,8 +54,8 @@ export default function About() {
       />
 
       {/* ── Main content ── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 py-16 sm:py-24 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
 
           {/* ── LEFT: Text block ── */}
           <motion.div
@@ -66,21 +66,21 @@ export default function About() {
             className="lg:col-span-6 flex flex-col justify-center"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/35 bg-[#FE5101]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-[#FE5101] w-fit mb-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/35 bg-[#FE5101]/10 px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.22em] text-[#FE5101] w-fit mb-5 sm:mb-7">
               <span className="flex h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
               Philosophy &amp; Background
             </div>
 
             {/* Headline */}
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-[52px] font-black text-white leading-[1.08] mb-7">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-[52px] font-black text-white leading-[1.12] sm:leading-[1.08] mb-5 sm:mb-7">
               Architecting robust software{" "}
               <span className="text-[#FE5101]">
-                with&nbsp;uncompromising&nbsp;clarity.
+                with uncompromising clarity.
               </span>
             </h2>
 
             {/* Body copy */}
-            <div className="space-y-4 text-base sm:text-lg text-white/55 leading-relaxed max-w-xl">
+            <div className="space-y-4 text-sm sm:text-base lg:text-lg text-white/60 leading-relaxed max-w-xl">
               <p>
                 I am a Full-Stack Systems Architect based in Nairobi, Kenya. I
                 engineer production platforms — from mission-critical FinTech
@@ -95,14 +95,14 @@ export default function About() {
             </div>
 
             {/* Footer pills */}
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-mono text-white/65">
-                <MapPin size={13} className="text-[#FE5101]" />
-                Nairobi, Kenya (Remote · Worldwide)
+            <div className="mt-7 sm:mt-9 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2.5 sm:gap-3">
+              <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 sm:px-4 py-2 text-xs font-mono text-white/70">
+                <MapPin size={13} className="text-[#FE5101] shrink-0" />
+                <span>Nairobi, Kenya (Remote · Worldwide)</span>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/8 px-4 py-2 text-xs font-mono text-emerald-400">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Available for ambitious projects
+              <div className="flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/8 px-3.5 sm:px-4 py-2 text-xs font-mono text-emerald-400">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <span>Available for ambitious projects</span>
               </div>
             </div>
           </motion.div>

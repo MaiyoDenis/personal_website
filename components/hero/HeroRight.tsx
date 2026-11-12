@@ -98,7 +98,7 @@ export default function HeroRight() {
         </motion.div>
 
         {/* ── 6. Left Stack of Floating Tech Pills (Consistent dimensions, subtle orange hover) ── */}
-        <div className="absolute left-[-2%] sm:left-[-4%] lg:left-[-6%] top-[20%] z-30 flex flex-col gap-2.5">
+        <div className="absolute left-[-2%] sm:left-[-4%] lg:left-[-6%] top-[12%] sm:top-[20%] z-30 flex flex-col gap-1.5 sm:gap-2.5">
           {techStack.map((tech, i) => (
             <motion.div
               key={tech.name}
@@ -106,12 +106,12 @@ export default function HeroRight() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
               whileHover={{ scale: 1.04, x: 4 }}
-              className="flex items-center gap-3 w-36 sm:w-38 rounded-2xl border border-white/10 bg-[#08080c]/90 px-3.5 py-2 sm:py-2.5 text-white shadow-2xl backdrop-blur-md hover:border-[#FF5A00]/40 hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] transition-all cursor-default"
+              className="flex items-center gap-2 sm:gap-3 w-28 sm:w-38 rounded-xl sm:rounded-2xl border border-white/10 bg-[#08080c]/90 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 text-white shadow-2xl backdrop-blur-md hover:border-[#FF5A00]/40 hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] transition-all cursor-default"
             >
-              <div className="flex h-5 w-5 items-center justify-center shrink-0">
+              <div className="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center shrink-0">
                 {tech.icon}
               </div>
-              <span className="text-xs sm:text-[13px] font-semibold tracking-tight text-white/95">
+              <span className="text-[11px] sm:text-[13px] font-semibold tracking-tight text-white/95">
                 {tech.name}
               </span>
             </motion.div>
@@ -123,9 +123,9 @@ export default function HeroRight() {
           initial={{ opacity: 0, y: -16, rotate: -7 }}
           animate={{ opacity: 1, y: 0, rotate: -7 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="absolute top-[2%] right-[-2%] sm:right-[0%] z-30 pointer-events-none text-right"
+          className="absolute top-[0%] sm:top-[2%] right-[-1%] sm:right-[0%] z-30 pointer-events-none text-right"
         >
-          <p className="font-script text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#E29D6E] leading-[1.08] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+          <p className="font-script text-lg sm:text-3xl lg:text-[32px] font-bold text-[#E29D6E] leading-[1.08] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
             Turning ambitious<br />
             ideas into<br />
             scalable software.
@@ -137,25 +137,25 @@ export default function HeroRight() {
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute bottom-[6%] sm:bottom-[8%] right-[-2%] sm:right-[0%] z-30 rounded-2xl border border-[#FF5A00]/35 bg-[#08080c]/90 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_0_35px_rgba(255,90,0,0.22)] w-44 sm:w-48 text-left"
+          className="absolute bottom-[4%] sm:bottom-[8%] right-[-1%] sm:right-[0%] z-30 rounded-xl sm:rounded-2xl border border-[#FF5A00]/35 bg-[#08080c]/90 backdrop-blur-xl p-2.5 sm:p-4 shadow-[0_0_35px_rgba(255,90,0,0.22)] w-36 sm:w-48 text-left"
         >
           {/* Header with concentric pulse */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="relative flex h-3 w-3 items-center justify-center">
+          <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+            <div className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3 items-center justify-center">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5A00] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5A00]" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-[#FF5A00]" />
             </div>
-            <span className="text-xs font-bold text-white tracking-wide">
+            <span className="text-[11px] sm:text-xs font-bold text-white tracking-wide">
               Building...
             </span>
           </div>
 
           {/* Checklist */}
-          <div className="space-y-2">
+          <div className="space-y-1 sm:space-y-2">
             {buildingList.map((item) => (
-              <div key={item} className="flex items-center gap-2 text-[11px] sm:text-xs text-white/85">
-                <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FF5A00]/15 text-[#FF5A00] border border-[#FF5A00]/40">
-                  <Check size={10} strokeWidth={3} />
+              <div key={item} className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-white/85">
+                <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 items-center justify-center rounded-full bg-[#FF5A00]/15 text-[#FF5A00] border border-[#FF5A00]/40">
+                  <Check size={9} strokeWidth={3} />
                 </div>
                 <span className="truncate">{item}</span>
               </div>

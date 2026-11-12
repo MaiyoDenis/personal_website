@@ -32,10 +32,10 @@ export default function HeroLeft() {
         transition={{ duration: 0.6, delay: 0.08 }}
         className="flex flex-col leading-none select-none"
       >
-        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-white tracking-[-0.035em] leading-[0.92]">
+        <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-white tracking-[-0.035em] leading-[0.92]">
           Denis
         </h1>
-        <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-[#FF5A00] tracking-[-0.035em] leading-[0.92] mt-1 drop-shadow-[0_0_35px_rgba(255,90,0,0.4)]">
+        <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-[80px] xl:text-[88px] text-[#FF5A00] tracking-[-0.035em] leading-[0.92] mt-1 drop-shadow-[0_0_35px_rgba(255,90,0,0.4)]">
           Maiyo
         </h1>
       </motion.div>
@@ -110,12 +110,12 @@ export default function HeroLeft() {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.34 }}
-        className="mt-8 flex flex-wrap items-center gap-4"
+        className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto"
       >
         {/* Primary Pill: View My Work */}
         <Link
           href="#projects"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF5A00] to-[#FF7A2B] px-7 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_rgba(255,90,0,0.45)] hover:shadow-[0_0_42px_rgba(255,90,0,0.7)] hover:scale-105 transition-all duration-300"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FF5A00] to-[#FF7A2B] px-7 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_rgba(255,90,0,0.45)] hover:shadow-[0_0_42px_rgba(255,90,0,0.7)] hover:scale-105 active:scale-95 transition-all duration-300"
         >
           <span>View My Work</span>
           <ArrowRight size={16} />
@@ -124,7 +124,7 @@ export default function HeroLeft() {
         {/* Secondary Pill: Download CV */}
         <Link
           href="/resume"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/10 transition-all duration-300"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/10 active:scale-95 transition-all duration-300"
         >
           <Download size={15} />
           <span>Download CV</span>

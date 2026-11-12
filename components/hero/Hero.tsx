@@ -6,7 +6,7 @@ import HeroRight from "./HeroRight";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pb-16 lg:pt-20 lg:pb-8 bg-[#050505]">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pb-16 lg:pt-20 lg:pb-8 bg-[#050505]">
 
       {/* ── 0. City Skyline Background Image ── */}
       <div
