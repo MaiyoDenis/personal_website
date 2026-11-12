@@ -104,19 +104,18 @@ export default function Skills() {
         transition={{ duration: 0.7 }}
         className="text-center"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5A00]/25 bg-[#FF5A00]/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF5A00]">
-          <span className="flex h-1.5 w-1.5 rounded-full bg-[#FF5A00] animate-pulse" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#FE5101]/35 bg-[#FE5101]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-[#FE5101]">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-[#FE5101] animate-pulse" />
           Technical Disciplines
         </div>
 
         <h2 className="mt-5 font-display text-4xl sm:text-6xl font-black tracking-tight">
-          <span className="text-[#F5F0EA]">Capabilities &amp; </span>
-          <span className="text-[#FF5A00]">Core Stack</span>
+          <span className="text-white">Technical </span>
+          <span className="text-[#FE5101]">Disciplines</span>
         </h2>
 
-        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed font-sans text-[#A99B90]">
-          Full ownership across the engineering lifecycle — from database schema design and
-          FinTech integrations to high-velocity frontend interfaces.
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed font-sans text-white/55">
+          Engineering across the full stack — from infrastructure to intelligent systems.
         </p>
       </motion.div>
 
