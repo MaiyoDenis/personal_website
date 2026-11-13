@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Download, Terminal, Brain, ShieldCheck } from "lucide-react";
+import { Terminal, Brain, ShieldCheck } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "@/components/ui/Icons";
 import { Mail } from "lucide-react";
+import HeroButtons from "./HeroButtons";
 
 export default function HeroLeft() {
   return (
@@ -110,25 +110,9 @@ export default function HeroLeft() {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.34 }}
-        className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto"
+        className="mt-8"
       >
-        {/* Primary Pill: View My Work */}
-        <Link
-          href="#projects"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FF5A00] to-[#FF7A2B] px-7 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_rgba(255,90,0,0.45)] hover:shadow-[0_0_42px_rgba(255,90,0,0.7)] hover:scale-105 active:scale-95 transition-all duration-300"
-        >
-          <span>View My Work</span>
-          <ArrowRight size={16} />
-        </Link>
-
-        {/* Secondary Pill: Download CV */}
-        <Link
-          href="/resume"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-6 sm:px-7 py-3.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/10 active:scale-95 transition-all duration-300"
-        >
-          <Download size={15} />
-          <span>Download CV</span>
-        </Link>
+        <HeroButtons />
       </motion.div>
 
       {/* ── Social Icons & Availability Status ── */}
