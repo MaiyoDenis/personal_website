@@ -441,3 +441,24 @@
   background: var(--color-surface);
   z-index: -1;
 }
+
+/* ─── Print Styles for Clean Resume PDF Export ───────── */
+@media print {
+  html, body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    margin: 1cm 1.2cm;
+    size: A4 portrait;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
